@@ -397,15 +397,17 @@ tracked_companies:
   # ============================================================
 
   - name: Freshworks
-    careers_url: https://job-boards.greenhouse.io/freshworks
-    api: https://boards-api.greenhouse.io/v1/boards/freshworks/jobs
-    notes: "Chennai / Bengaluru. India's largest public SaaS. CRM, ITSM, CX. Enterprise + SMB. Strong PMM function."
+    careers_url: https://careers.smartrecruiters.com/freshworks
+    scan_method: websearch
+    scan_query: 'site:careers.smartrecruiters.com/freshworks "Product Marketing" OR "PMM" OR "Head of Marketing"'
+    notes: "Chennai / Bengaluru. India's largest public SaaS. CRM, ITSM, CX. Uses Smart Recruiters NOT Greenhouse."
     enabled: true
 
   - name: BrowserStack
-    careers_url: https://job-boards.greenhouse.io/browserstack
-    api: https://boards-api.greenhouse.io/v1/boards/browserstack/jobs
-    notes: "Mumbai. Developer testing platform. Enterprise + developer PMM. India-built, global customer base. Series B unicorn."
+    careers_url: https://browserstack.wd3.myworkdayjobs.com/External
+    scan_method: websearch
+    scan_query: 'site:browserstack.wd3.myworkdayjobs.com "Product Marketing" OR "PMM" OR "Marketing Manager"'
+    notes: "Mumbai. Developer testing platform ($4B, profitable). Uses Workday NOT Greenhouse. Active India-Remote PMM role confirmed 2026-05-09 (JR100392)."
     enabled: true
 
   - name: Postman
@@ -415,21 +417,24 @@ tracked_companies:
     enabled: true
 
   - name: Chargebee
-    careers_url: https://job-boards.greenhouse.io/chargebee
-    api: https://boards-api.greenhouse.io/v1/boards/chargebee/jobs
-    notes: "Chennai / global. Subscription management SaaS. Pricing & packaging expertise (Abhinav designed 3-tier model at DevRev) is key differentiator here."
+    careers_url: https://careers.chargebee.com/jobs
+    scan_method: websearch
+    scan_query: 'site:careers.chargebee.com "Product Marketing" OR "PMM" OR "Marketing Manager" India OR Bengaluru OR Chennai OR remote'
+    notes: "Chennai / global. Subscription management SaaS. Uses own careers portal NOT Greenhouse. Pricing & packaging expertise (Abhinav's 3-tier model) is key differentiator."
     enabled: true
 
   - name: Whatfix
-    careers_url: https://job-boards.greenhouse.io/whatfix
-    api: https://boards-api.greenhouse.io/v1/boards/whatfix/jobs
-    notes: "Bengaluru. Digital adoption platform for enterprises. Same enterprise buyer (IT, procurement, ops). Series D. PMM-led growth."
+    careers_url: https://whatfix101.hire.trakstar.com/jobs
+    scan_method: websearch
+    scan_query: 'site:whatfix101.hire.trakstar.com "Product Marketing" OR "PMM" OR "Marketing"'
+    notes: "Bengaluru. Digital adoption platform. Uses Trakstar NOT Greenhouse. No PMM openings confirmed 2026-05-09 — monitor."
     enabled: true
 
   - name: Sprinklr
-    careers_url: https://job-boards.greenhouse.io/sprinklr
-    api: https://boards-api.greenhouse.io/v1/boards/sprinklr/jobs
-    notes: "NYC + Bengaluru. Unified CXM enterprise platform. Strong India PMM presence. Enterprise buyers match DevRev profile."
+    careers_url: https://sprinklr.wd1.myworkdayjobs.com/External
+    scan_method: websearch
+    scan_query: 'site:sprinklr.wd1.myworkdayjobs.com "Product Marketing" OR "PMM" India OR Bengaluru OR remote'
+    notes: "NYC + Bengaluru. Unified CXM enterprise platform. Uses Workday NOT Greenhouse. Current PMM roles are US-based — monitor for India/remote openings."
     enabled: true
 
   - name: Icertis
@@ -451,15 +456,35 @@ tracked_companies:
     enabled: true
 
   - name: Darwinbox
-    careers_url: https://job-boards.greenhouse.io/darwinbox
-    api: https://boards-api.greenhouse.io/v1/boards/darwinbox/jobs
-    notes: "Hyderabad. HRtech SaaS. India enterprise + ASEAN + ME expansion. PMM role is growing. IIM-A pedigree valued."
+    careers_url: https://darwinbox.com/en-us/careers
+    scan_method: websearch
+    scan_query: 'site:darwinbox.com/careers "Product Marketing" OR "PMM" OR "Marketing Manager"'
+    notes: "Hyderabad. HRtech SaaS. Uses own careers portal NOT Greenhouse. India enterprise + ASEAN + ME expansion. IIM-A pedigree valued."
     enabled: true
 
   - name: Leadsquared
-    careers_url: https://job-boards.greenhouse.io/leadsquared
-    api: https://boards-api.greenhouse.io/v1/boards/leadsquared/jobs
+    careers_url: https://leadsquared.com/careers
+    scan_method: websearch
+    scan_query: 'site:leadsquared.com/careers "Product Marketing" OR "PMM" OR "Marketing Manager"'
     notes: "Bengaluru. Sales automation + CRM for India market. Mid-market + enterprise. PMM growing."
+    enabled: true
+
+  - name: Innovaccer
+    careers_url: https://job-boards.greenhouse.io/innovaccer
+    api: https://boards-api.greenhouse.io/v1/boards/innovaccer/jobs
+    notes: "Noida / San Francisco. Healthcare data cloud + AI SaaS. Uses Greenhouse. Enterprise PMM — complex multi-stakeholder B2B buyer maps directly to DevRev PoC experience."
+    enabled: true
+
+  - name: Gainsight
+    careers_url: https://job-boards.greenhouse.io/gainsight
+    api: https://boards-api.greenhouse.io/v1/boards/gainsight/jobs
+    notes: "Bengaluru / San Francisco. Customer success + product experience platform. India engineering + CS hub. Enterprise PMM roles exist. Abhinav's CS coordination at DevRev is directly relevant."
+    enabled: true
+
+  - name: Zendesk
+    careers_url: https://job-boards.greenhouse.io/zendesk
+    api: https://boards-api.greenhouse.io/v1/boards/zendesk/jobs
+    notes: "Bengaluru office (400+ employees). Customer service platform. Enterprise PMM. India hiring confirmed."
     enabled: true
 
   - name: Razorpay
@@ -488,9 +513,10 @@ tracked_companies:
     enabled: true
 
   - name: MoEngage
-    careers_url: https://job-boards.greenhouse.io/moengage
-    api: https://boards-api.greenhouse.io/v1/boards/moengage/jobs
-    notes: "Bengaluru / global. Customer engagement platform. Expanding APAC + ME. Strong India PMM team."
+    careers_url: https://moengage.hire.trakstar.com/jobs
+    scan_method: websearch
+    scan_query: 'site:moengage.hire.trakstar.com "Product Marketing" OR "PMM" OR "Marketing Manager"'
+    notes: "Bengaluru / global. Customer engagement platform. Uses Trakstar NOT Greenhouse. No PMM openings confirmed 2026-05-09 — monitor."
     enabled: true
 
   - name: Amplitude
