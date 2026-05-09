@@ -53,39 +53,31 @@ Read `cv.md`. Ejecuta TODOS los bloques:
 
 #### Paso 0 — Detección de Arquetipo
 
-Clasifica la oferta en uno de los 6 arquetipos. Si es híbrido, indica los 2 más cercanos.
+Clasifica la oferta en uno de los 5 arquetipos PMM. Si es híbrido, indica los 2 más cercanos.
 
-**Los 6 arquetipos (todos igual de válidos):**
+**Los 5 arquetipos PMM (todos igual de válidos):**
 
 | Arquetipo | Ejes temáticos | Qué compran |
 |-----------|----------------|-------------|
-| **AI Platform / LLMOps Engineer** | Evaluation, observability, reliability, pipelines | Alguien que ponga AI en producción con métricas |
-| **Agentic Workflows / Automation** | HITL, tooling, orchestration, multi-agent | Alguien que construya sistemas de agentes fiables |
-| **Technical AI Product Manager** | GenAI/Agents, PRDs, discovery, delivery | Alguien que traduzca negocio → producto AI |
-| **AI Solutions Architect** | Hyperautomation, enterprise, integrations | Alguien que diseñe arquitecturas AI end-to-end |
-| **AI Forward Deployed Engineer** | Client-facing, fast delivery, prototyping | Alguien que entregue soluciones AI a clientes rápido |
-| **AI Transformation Lead** | Change management, adoption, org enablement | Alguien que lidere el cambio AI en una organización |
+| **PMM — SaaS / B2B Tech** | Positioning, messaging, competitive intel, sales enablement, launches | Someone who builds the GTM motion from scratch and owns the product narrative |
+| **PMM — AI / Developer Tools** | Technical storytelling, developer audience, API/platform products | Someone who translates complex AI/dev products into buyer-ready messaging |
+| **PMM — Growth / PLG** | Funnel, activation, PLG, demand gen, ICP definition, pipeline | Someone who owns pipeline and drives product-led growth with measurable outcomes |
+| **Developer Marketing / DevRel Marketing** | Docs, content, community, events, developer adoption | Someone who grows developer adoption through authentic, technical-first marketing |
+| **Head / Director of PMM** | PMM charter, team leadership, strategy, board-level GTM narrative | Someone who builds and scales the PMM function cross-functionally |
 
 **Framing adaptativo:**
 
 > **Las métricas concretas se leen de `cv.md` + `article-digest.md` en cada evaluación. NUNCA hardcodear números aquí.**
 
 | Si el rol es... | Emphasize about the candidate... | Fuentes de proof points |
-|-----------------|--------------------------|--------------------------|
-| Platform / LLMOps | Builder de sistemas en producción, observability, evals, closed-loop | article-digest.md + cv.md |
-| Agentic / Automation | Orquestación multi-agente, HITL, reliability, cost | article-digest.md + cv.md |
-| Technical AI PM | Product discovery, PRDs, métricas, stakeholder mgmt | cv.md + article-digest.md |
-| Solutions Architect | Diseño de sistemas, integrations, enterprise-ready | article-digest.md + cv.md |
-| Forward Deployed Engineer | Fast delivery, client-facing, prototype → prod | cv.md + article-digest.md |
-| AI Transformation Lead | Change management, team enablement, adoption | cv.md + article-digest.md |
+|-----------------|----------------------------------|--------------------------|
+| PMM — SaaS / B2B | Launch playbooks, positioning frameworks, competitive battlecards, sales enablement assets | cv.md + article-digest.md |
+| PMM — AI / DevTools | Technical credibility, developer audience understanding, thought leadership, category creation | cv.md + article-digest.md |
+| PMM — Growth / PLG | Funnel metrics, activation experiments, ICP definition, messaging A/B tests, pipeline contribution | article-digest.md + cv.md |
+| DevRel Marketing | Community building, content strategy, event presence, developer docs impact | cv.md + article-digest.md |
+| Head / Director | PMM team-building, cross-functional leadership, board storytelling, PMM charter from scratch | cv.md |
 
-**Ventaja transversal**: Enmarcar perfil como **"Technical builder"** que adapta su framing al rol:
-- Para PM: "builder que reduce incertidumbre con prototipos y luego productioniza con disciplina"
-- Para FDE: "builder que entrega fast con observability y métricas desde día 1"
-- Para SA: "builder que diseña sistemas end-to-end con experiencia real en integrations"
-- Para LLMOps: "builder que pone AI en producción con closed-loop quality systems — leer métricas de article-digest.md"
-
-Convertir "builder" en señal profesional, no en "hobby maker". El framing cambia, la verdad es la misma.
+**Ventaja transversal**: Enmarcar perfil como **"PMM who understands the product deeply AND the APAC market natively"** — a rare combination that global SaaS and AI companies actively seek when entering India, Southeast Asia, and the Middle East. El framing cambia por arquetipo, la verdad es la misma.
 
 #### Bloque A — Resumen del Rol
 
@@ -96,12 +88,11 @@ Tabla con: Arquetipo detectado, Domain, Function, Seniority, Remote, Team size, 
 Read `cv.md`. Tabla con cada requisito del JD mapeado a líneas exactas del CV o keys de i18n.ts.
 
 **Adaptado al arquetipo:**
-- FDE → priorizar delivery rápida y client-facing
-- SA → priorizar diseño de sistemas e integrations
-- PM → priorizar product discovery y métricas
-- LLMOps → priorizar evals, observability, pipelines
-- Agentic → priorizar multi-agent, HITL, orchestration
-- Transformation → priorizar change management, adoption, scaling
+- PMM-SaaS/B2B → priorizar launches, positioning frameworks, sales enablement assets
+- PMM-AI/DevTools → priorizar technical storytelling, developer audience credibility, competitive intel
+- PMM-Growth/PLG → priorizar pipeline metrics, funnel ownership, ICP definition, activation experiments
+- DevRel Marketing → priorizar community growth, developer content, event impact, docs influence
+- Head/Director → priorizar PMM team charter, cross-functional leadership, board-level narrative
 
 Sección de **gaps** con estrategia de mitigación para cada uno:
 1. ¿Es hard blocker o nice-to-have?
