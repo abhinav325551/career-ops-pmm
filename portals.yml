@@ -89,67 +89,116 @@ title_filter:
 
 search_queries:
 
-  # -- India --
+  # ==========================================================
+  # INDIA — PRIMARY MARKET (10 queries)
+  # India is the primary target. These queries cast the widest
+  # net across all major India job portals and ATS platforms.
+  # ==========================================================
 
-  - name: LinkedIn — PMM Bengaluru / Mumbai / Delhi
-    query: '"Product Marketing Manager" OR "Senior PMM" OR "Head of Product Marketing" Bengaluru OR Mumbai OR "Delhi NCR" OR Hyderabad OR Pune'
+  - name: Naukri — PMM Senior India
+    query: 'site:naukri.com "Product Marketing Manager" OR "Senior PMM" OR "Head of Product Marketing" Bengaluru OR Mumbai OR "Delhi NCR" OR Hyderabad OR Pune'
     enabled: true
 
-  - name: Naukri — PMM India
-    query: 'site:naukri.com "Product Marketing Manager" OR "Senior PMM" OR "Head of Marketing" Bengaluru OR Mumbai OR Delhi OR Hyderabad'
+  - name: Naukri — PMM B2B SaaS India
+    query: 'site:naukri.com "Product Marketing" "B2B" OR "SaaS" OR "enterprise" OR "Go-to-Market" Bengaluru OR Mumbai OR Hyderabad OR Pune'
     enabled: true
 
-  - name: iimjobs — Senior PMM India
-    query: 'site:iimjobs.com "Product Marketing" OR "PMM" OR "Go-to-Market" Senior OR Lead OR Director OR Head'
+  - name: iimjobs — Senior PMM / Head of Marketing
+    query: 'site:iimjobs.com "Product Marketing" OR "PMM" OR "Go-to-Market" OR "GTM" Senior OR Lead OR Director OR Head OR VP'
     enabled: true
 
-  - name: Instahyre — PMM India
-    query: 'site:instahyre.com "Product Marketing" OR "PMM" OR "Growth Marketing" Bengaluru OR Mumbai OR Delhi'
+  - name: Indeed India — PMM Bengaluru / Mumbai
+    query: 'site:indeed.co.in "Product Marketing Manager" OR "Senior PMM" OR "Head of Product Marketing" Bengaluru OR Mumbai OR Hyderabad OR Pune OR "Delhi"'
+    enabled: true
+
+  - name: Foundit — PMM Senior India
+    query: 'site:foundit.in "Product Marketing Manager" OR "Senior PMM" OR "Head of Marketing" OR "GTM Manager" Bengaluru OR Mumbai OR Hyderabad OR Delhi'
+    enabled: true
+
+  - name: HiRist — PMM Tech India
+    query: 'site:hirist.tech "Product Marketing" OR "PMM" OR "Growth Marketing" OR "Go-to-Market" Bengaluru OR Mumbai OR Hyderabad'
     enabled: true
 
   - name: Cutshort — PMM India startups
     query: 'site:cutshort.io "Product Marketing" OR "PMM" OR "Go-to-Market" Bengaluru OR Mumbai OR remote India'
     enabled: true
 
-  # -- Singapore / ASEAN --
+  - name: Instahyre — PMM India
+    query: 'site:instahyre.com "Product Marketing" OR "PMM" OR "Growth Marketing" Bengaluru OR Mumbai OR Delhi OR Hyderabad'
+    enabled: true
+
+  - name: Wellfound — PMM India startups
+    query: 'site:wellfound.com "Product Marketing" OR "PMM" OR "Go-to-Market" India Bengaluru OR Mumbai OR remote'
+    enabled: true
+
+  - name: LinkedIn — PMM India (Bengaluru / Mumbai / Hyderabad)
+    query: '"Product Marketing Manager" OR "Senior PMM" OR "Head of Product Marketing" OR "Director Product Marketing" "Bengaluru" OR "Mumbai" OR "Hyderabad" OR "Pune" OR "Delhi NCR" -internship -junior'
+    enabled: true
+
+  # ATS portals with India location filter — surfaces companies
+  # NOT in the tracked list that post on Greenhouse/Ashby/Lever
+
+  - name: Greenhouse — PMM India location
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Product Marketing" India OR Bengaluru OR Mumbai OR Hyderabad'
+    enabled: true
+
+  - name: Ashby — PMM India location
+    query: 'site:jobs.ashbyhq.com "Product Marketing" OR "PMM" India OR Bengaluru OR Mumbai OR Hyderabad'
+    enabled: true
+
+  - name: Lever — PMM India location
+    query: 'site:jobs.lever.co "Product Marketing" OR "PMM" India OR Bengaluru OR Mumbai OR Hyderabad'
+    enabled: true
+
+  # ==========================================================
+  # SINGAPORE / ASEAN — SECONDARY MARKET (4 queries)
+  # ==========================================================
 
   - name: MyCareersFuture — PMM Singapore
-    query: 'site:mycareersfuture.gov.sg "Product Marketing Manager" OR "Senior PMM" OR "Head of Marketing"'
+    query: 'site:mycareersfuture.gov.sg "Product Marketing Manager" OR "Senior PMM" OR "Head of Marketing" OR "Go-to-Market"'
     enabled: true
 
   - name: LinkedIn — PMM Singapore / ASEAN
-    query: '"Product Marketing Manager" OR "Senior PMM" OR "Head of Product Marketing" Singapore OR "Southeast Asia" OR ASEAN'
+    query: '"Product Marketing Manager" OR "Senior PMM" OR "Head of Product Marketing" Singapore OR "Southeast Asia" OR ASEAN -internship -junior'
     enabled: true
 
   - name: JobStreet — PMM ASEAN
     query: 'site:jobstreet.com "Product Marketing" OR "PMM" Singapore OR Malaysia OR Indonesia OR Thailand OR Philippines'
     enabled: true
 
-  # -- Middle East --
-
-  - name: LinkedIn — PMM Dubai / UAE
-    query: '"Product Marketing Manager" OR "Senior PMM" OR "Head of Marketing" Dubai OR UAE OR "Abu Dhabi"'
+  - name: Greenhouse / Ashby — PMM Singapore APAC
+    query: 'site:boards.greenhouse.io OR site:jobs.ashbyhq.com "Product Marketing" Singapore OR APAC OR "Southeast Asia"'
     enabled: true
 
-  - name: Bayt — PMM Middle East
-    query: 'site:bayt.com "Product Marketing Manager" OR "PMM" OR "Go-to-Market" Dubai OR UAE OR "Saudi Arabia" OR Riyadh OR Qatar'
+  # ==========================================================
+  # MIDDLE EAST — SECONDARY MARKET (4 queries)
+  # ==========================================================
+
+  - name: LinkedIn — PMM Dubai / UAE / Saudi
+    query: '"Product Marketing Manager" OR "Senior PMM" OR "Head of Marketing" Dubai OR UAE OR "Abu Dhabi" OR Riyadh OR "Saudi Arabia" -internship -junior'
+    enabled: true
+
+  - name: Bayt — PMM GCC
+    query: 'site:bayt.com "Product Marketing Manager" OR "PMM" OR "Go-to-Market" OR "Head of Marketing" Dubai OR UAE OR "Saudi Arabia" OR Riyadh OR Qatar OR Doha'
     enabled: true
 
   - name: GulfTalent — PMM GCC
-    query: 'site:gulftalent.com "Product Marketing" OR "PMM" OR "Growth Marketing" Dubai OR UAE OR Riyadh OR Doha'
+    query: 'site:gulftalent.com "Product Marketing" OR "PMM" OR "Growth Marketing" Dubai OR UAE OR Riyadh OR Doha OR "Abu Dhabi"'
     enabled: true
 
   - name: Naukrigulf — PMM Gulf
-    query: 'site:naukrigulf.com "Product Marketing Manager" OR "Head of Marketing" OR "Senior PMM" Dubai OR UAE OR Saudi'
+    query: 'site:naukrigulf.com "Product Marketing Manager" OR "Head of Marketing" OR "Senior PMM" Dubai OR UAE OR Saudi OR Riyadh'
     enabled: true
 
-  # -- Remote US/EMEA (fully remote) --
+  # ==========================================================
+  # REMOTE US/EMEA — TERTIARY (fully remote only) (5 queries)
+  # ==========================================================
 
-  - name: Ashby — PMM Remote
+  - name: Ashby — PMM Remote global
     query: 'site:jobs.ashbyhq.com "Product Marketing Manager" OR "Senior PMM" OR "Head of Product Marketing" remote'
     enabled: true
 
-  - name: Greenhouse — PMM Remote
+  - name: Greenhouse — PMM Remote global
     query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Product Marketing Manager" OR "Senior PMM" remote'
     enabled: true
 
@@ -161,30 +210,8 @@ search_queries:
     query: 'site:weworkremotely.com "Product Marketing" OR "PMM"'
     enabled: true
 
-  - name: Remote.co — PMM
-    query: 'site:remote.co "Product Marketing Manager" OR "Senior PMM"'
-    enabled: true
-
   - name: YC Jobs — PMM Remote
     query: 'site:ycombinator.com/jobs OR site:workatastartup.com "Product Marketing" OR "PMM" remote'
-    enabled: true
-
-  - name: Workable — PMM Remote
-    query: 'site:apply.workable.com "Product Marketing Manager" OR "Senior PMM" remote'
-    enabled: true
-
-  # -- AI company PMM roles (remote + India/SG) --
-
-  - name: Ashby — PMM at AI/DevTool companies
-    query: 'site:jobs.ashbyhq.com "Product Marketing" AI OR "developer tools" OR "developer experience" OR platform remote OR India OR Singapore'
-    enabled: true
-
-  - name: Greenhouse — PMM SaaS/B2B
-    query: 'site:boards.greenhouse.io "Product Marketing Manager" "B2B" OR "SaaS" OR "enterprise" remote OR India OR Singapore'
-    enabled: true
-
-  - name: Lever — PMM DevTools
-    query: 'site:jobs.lever.co "Product Marketing" OR "PMM" developer OR platform OR SaaS remote OR India OR Singapore'
     enabled: true
 
   # -- Tier 8 global companies: remote or visa relocation only --
