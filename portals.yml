@@ -151,6 +151,49 @@ search_queries:
     enabled: true
 
   # ==========================================================
+  # VC JOB PORTALS — INDIA (9 queries)
+  # India VCs aggregate portfolio company jobs on their sites.
+  # These surface high-quality funded startup PMM roles that
+  # don't always appear on Naukri/LinkedIn in time.
+  # ==========================================================
+
+  - name: Peak XV Partners (Sequoia India) — PMM portfolio jobs
+    query: 'site:peakxv.com "Product Marketing" OR "PMM" OR "Marketing Manager" OR "Go-to-Market"'
+    enabled: true
+
+  - name: Accel India — PMM portfolio jobs
+    query: 'site:accel.com/jobs "Product Marketing" OR "PMM" OR "Marketing" India OR Bengaluru OR Mumbai'
+    enabled: true
+
+  - name: Lightspeed India — PMM portfolio jobs
+    query: 'site:lsvp.com/jobs OR site:lightspeedindia.com "Product Marketing" OR "PMM" OR "Marketing Manager"'
+    enabled: true
+
+  - name: Elevation Capital — PMM portfolio jobs
+    query: 'site:elevationcapital.com "Product Marketing" OR "PMM" OR "Marketing" jobs OR careers'
+    enabled: true
+
+  - name: Matrix Partners India — PMM portfolio jobs
+    query: 'site:matrixpartners.in "Product Marketing" OR "PMM" OR "Marketing Manager" jobs OR careers OR portfolio'
+    enabled: true
+
+  - name: Nexus Venture Partners — PMM portfolio jobs
+    query: 'site:nexusvp.com "Product Marketing" OR "PMM" OR "Marketing" jobs OR careers'
+    enabled: true
+
+  - name: Blume Ventures — PMM portfolio jobs
+    query: 'site:blume.vc "Product Marketing" OR "PMM" OR "Marketing Manager" jobs OR careers'
+    enabled: true
+
+  - name: 3one4 Capital — PMM portfolio jobs
+    query: 'site:3one4.vc "Product Marketing" OR "PMM" OR "Marketing" jobs OR careers OR portfolio'
+    enabled: true
+
+  - name: Chiratae Ventures — PMM portfolio jobs
+    query: 'site:chiratae.com "Product Marketing" OR "PMM" OR "Marketing Manager" jobs OR careers'
+    enabled: true
+
+  # ==========================================================
   # SINGAPORE / ASEAN — SECONDARY MARKET (4 queries)
   # ==========================================================
 
