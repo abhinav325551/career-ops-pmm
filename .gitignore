@@ -16,6 +16,9 @@ jds/*
 !jds/.gitkeep
 
 # User config and customization (never auto-updated)
+cv.md
+article-digest.md
+writing-samples/
 config/profile.yml
 .update-dismissed
 .update-lock
