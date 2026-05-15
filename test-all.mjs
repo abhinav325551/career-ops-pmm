@@ -11,7 +11,7 @@
  *   node test-all.mjs --quick   # Skip dashboard build (faster)
  */
 
-import { execSync } from 'child_process';
+import { execSync, execFileSync } from 'child_process';
 import { readFileSync, existsSync, readdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
@@ -28,8 +28,11 @@ function pass(msg) { console.log(`  ✅ ${msg}`); passed++; }
 function fail(msg) { console.log(`  ❌ ${msg}`); failed++; }
 function warn(msg) { console.log(`  ⚠️  ${msg}`); warnings++; }
 
-function run(cmd, opts = {}) {
+function run(cmd, args = [], opts = {}) {
   try {
+    if (Array.isArray(args) && args.length > 0) {
+      return execFileSync(cmd, args, { cwd: ROOT, encoding: 'utf-8', timeout: 30000, ...opts }).trim();
+    }
     return execSync(cmd, { cwd: ROOT, encoding: 'utf-8', timeout: 30000, ...opts }).trim();
   } catch (e) {
     return null;
@@ -47,7 +50,7 @@ console.log('1. Syntax checks');
 
 const mjsFiles = readdirSync(ROOT).filter(f => f.endsWith('.mjs'));
 for (const f of mjsFiles) {
-  const result = run(`node --check ${f}`);
+  const result = run('node', ['--check', f]);
   if (result !== null) {
     pass(`${f} syntax OK`);
   } else {
@@ -69,7 +72,7 @@ const scripts = [
 ];
 
 for (const { name, allowFail } of scripts) {
-  const result = run(`node ${name} 2>&1`);
+  const result = run('node', name.split(' '), { stdio: ['pipe', 'pipe', 'pipe'] });
   if (result !== null) {
     pass(`${name} runs OK`);
   } else if (allowFail) {
@@ -110,6 +113,25 @@ try {
     pass('Visible apply controls still keep real job pages active');
   } else {
     fail(`Active job page misclassified as ${activeWorkdayPage.result}`);
+  }
+
+  const closedMycareersfuture = classifyLiveness({
+    finalUrl: 'https://www.mycareersfuture.gov.sg/job/engineering/senior-staff-embedded-software-engineer',
+    bodyText: [
+      'Senior Staff Embedded Software Engineer',
+      'MaxLinear Asia Singapore Private Limited',
+      '9 applications    Posted 27 Oct 2025    Closed on 26 Nov 2025',
+      'Applications have closed for this job',
+      'Log in to Apply',
+      "You'll need to log in with Singpass to verify your identity.",
+      'Roles & Responsibilities: design, develop and maintain embedded firmware for broadband communications ICs.',
+    ].join('\n'),
+    applyControls: ['Log in to Apply'],
+  });
+  if (closedMycareersfuture.result === 'expired') {
+    pass('Closed postings with "Applications have closed" banner are detected');
+  } else {
+    fail(`Closed mycareersfuture posting misclassified as ${closedMycareersfuture.result}`);
   }
 } catch (e) {
   fail(`Liveness classification tests crashed: ${e.message}`);
@@ -155,7 +177,7 @@ const userFiles = [
   'config/profile.yml', 'modes/_profile.md', 'portals.yml',
 ];
 for (const f of userFiles) {
-  const tracked = run(`git ls-files ${f}`);
+  const tracked = run('git', ['ls-files', f]);
   if (tracked === '') {
     pass(`User file gitignored: ${f}`);
   } else if (tracked === null) {
@@ -181,7 +203,7 @@ const allowedFiles = [
   'README.pt-BR.md', 'README.ru.md',
   // Standard project files
   'LICENSE', 'CITATION.cff', 'CONTRIBUTING.md',
-  'package.json', '.github/FUNDING.yml', 'CLAUDE.md', 'go.mod', 'test-all.mjs',
+  'package.json', '.github/FUNDING.yml', 'CLAUDE.md', 'AGENTS.md', 'go.mod', 'test-all.mjs',
   // Community / governance files (added in v1.3.0, all legitimately reference the maintainer)
   'CODE_OF_CONDUCT.md', 'GOVERNANCE.md', 'SECURITY.md', 'SUPPORT.md',
   '.github/SECURITY.md',
@@ -258,11 +280,11 @@ if (shared.includes('_profile.md')) {
   fail('_shared.md does NOT reference _profile.md');
 }
 
-// ── 9. CLAUDE.md INTEGRITY ──────────────────────────────────────
+// ── 9. AGENTS.md INTEGRITY ──────────────────────────────────────
 
-console.log('\n9. CLAUDE.md integrity');
+console.log('\n9. AGENTS.md integrity');
 
-const claude = readFile('CLAUDE.md');
+const agents = readFile('AGENTS.md');
 const requiredSections = [
   'Data Contract', 'Update Check', 'Ethical Use',
   'Offer Verification', 'Canonical States', 'TSV Format',
@@ -270,10 +292,10 @@ const requiredSections = [
 ];
 
 for (const section of requiredSections) {
-  if (claude.includes(section)) {
-    pass(`CLAUDE.md has section: ${section}`);
+  if (agents.includes(section)) {
+    pass(`AGENTS.md has section: ${section}`);
   } else {
-    fail(`CLAUDE.md missing section: ${section}`);
+    fail(`AGENTS.md missing section: ${section}`);
   }
 }
 

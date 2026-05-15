@@ -1,10 +1,17 @@
-# Portal Scanner Configuration — Product Marketing | India · ASEAN · Middle East · Remote US/EMEA
+# Portal Scanner Configuration
 # Used by /career-ops scan to discover new offers automatically.
 #
 # Strategy (3 levels):
 #   1. Playwright → careers_url of each company (real-time, reliable)
 #   2. Greenhouse API → structured JSON (fast, Greenhouse-only)
 #   3. WebSearch with site: filters (broad discovery, may be stale)
+#
+# IMPORTANT: Each company in tracked_companies MUST have careers_url.
+#   Prefer the BRANDED company careers URL whenever available; use ATS-hosted URL only as fallback.
+#   ✅ https://careers.mastercard.com   ⚠️ https://mastercard.wd1.myworkdayjobs.com (fallback only)
+#   ✅ https://openai.com/careers       ⚠️ https://job-boards.greenhouse.io/openai (fallback only)
+#   Exception: ATS-hosted careers_url is acceptable when no branded careers page exists.
+#   Using raw ATS URLs when a branded page exists can cause false 410 errors (job ID mismatch).
 #
 # HOW TO CUSTOMIZE:
 #   1. Copy this file to portals.yml in the project root
@@ -13,909 +20,971 @@
 #   4. Adjust search_queries for your preferred job boards
 #   5. Set enabled: false on companies you don't care about
 
+# -- Location filter (optional) --
+# Filter scanned jobs by location. Applied AFTER title filter, BEFORE dedup.
+# If this entire block is absent, all locations pass (current default behavior).
+#
+# Semantics:
+#   - Empty location string on a job → pass (don't penalize missing data)
+#   - Any `block` keyword present → reject (takes precedence over allow)
+#   - `allow` empty → pass (already cleared block)
+#   - `allow` non-empty → must match at least one keyword
+# All matches are case-insensitive substring.
+#
+# Example below targets US-based remote + a couple of US metros, blocking
+# common foreign hubs. Customize to your geography.
+
+# location_filter:
+#   allow:
+#     - "Remote"
+#     - "United States"
+#     - "USA"
+#     - "Atlanta"
+#     - "New York"
+#   block:
+#     - "India"
+#     - "Bengaluru"
+#     - "United Kingdom"
+#     - "London"
+#     - "Germany"
+#     - "France"
+#     - "Singapore"
+#     - "Japan"
+#     - "Brazil"
+#     - "Australia"
+
 # -- Title filter --
+# The scanner uses these keywords to decide if a title is relevant.
 # At least 1 positive must match AND 0 negatives must match (case-insensitive).
 
 title_filter:
   positive:
-    # -- Product Marketing --
-    - "Product Marketing"
-    - "PMM"
-    - "Go-to-Market"
-    - "GTM"
-    - "Product Launch"
-    - "Launch Marketing"
-    - "Market Positioning"
-    - "Competitive Intelligence"
-    - "Sales Enablement"
-    - "Category Marketing"
-    - "Category Design"
-    # -- Growth Marketing --
-    - "Growth Marketing"
-    - "Demand Generation"
-    - "Demand Gen"
-    - "Growth Manager"
-    - "Revenue Marketing"
-    # -- Developer / Technical Marketing --
-    - "Developer Marketing"
-    - "Developer Relations"
-    - "DevRel"
-    - "Technical Marketing"
-    - "Developer Advocacy"
-    # -- Content & Brand Marketing --
-    - "Content Marketing"
-    - "Thought Leadership"
-    - "Content Strategy"
-    - "Brand Marketing"
-    # -- Leadership titles --
-    - "Head of Marketing"
-    - "Head of Product Marketing"
-    - "VP Marketing"
-    - "VP of Product Marketing"
-    - "Director of Marketing"
-    - "Director of Product Marketing"
+    # [CUSTOMIZE] Add keywords matching YOUR target roles
+    # -- AI/ML roles --
+    - "AI"
+    - "ML"
+    - "LLM"
+    - "Agent"
+    - "Agentic"
+    - "GenAI"
+    - "Generative AI"
+    - "NLP"
+    - "LLMOps"
+    - "MLOps"
+    - "Voice AI"
+    - "Conversational AI"
+    - "Speech"
+    # -- German AI/ML keywords (DACH market) --
+    - "KI"
+    - "Künstliche Intelligenz"
+    - "KI Engineer"
+    - "KI Trainer"
+    - "Dozent"
+    - "Weiterbildung"
+    # -- Engineering roles --
+    - "Platform Engineer"
+    - "Solutions Architect"
+    - "Solutions Engineer"
+    - "Forward Deployed"
+    - "Deployed Engineer"
+    - "Customer Engineer"
+    - "Integration Engineer"
+    # -- Product roles --
+    - "Product Manager"
+    - "Technical PM"
+    # -- Automation roles --
+    - "Automation"
+    - "Hyperautomation"
+    - "Low-Code"
+    - "No-Code"
+    - "GTM Engineer"
+    - "RevOps"
+    - "Business Systems"
+    - "Internal Tools"
+    - "Transformation"
   negative:
+    # [CUSTOMIZE] Add keywords for roles you want to exclude
     - "Junior"
     - "Intern"
-    - "Internship"
-    - "Apprentice"
-    - "Engineer"
-    - "Developer"
-    - "Data Scientist"
-    - "Machine Learning"
-    - "Backend"
-    - "Frontend"
-    - "Full Stack"
+    - ".NET"
+    - "Java "
     - "iOS"
     - "Android"
-    - "DevOps"
-    - "SRE"
+    - "PHP"
+    - "Ruby"
+    - "Embedded"
+    - "Firmware"
+    - "FPGA"
+    - "ASIC"
     - "Blockchain"
     - "Web3"
     - "Crypto"
-    - "COBOL"
+    - "Salesforce Admin"
+    - "SAP "
+    - "Oracle EBS"
     - "Mainframe"
+    - "COBOL"
   seniority_boost:
+    # These prefixes add relevance but are not required
     - "Senior"
     - "Staff"
     - "Principal"
     - "Lead"
     - "Head"
     - "Director"
-    - "VP"
 
 # -- Search queries --
-# Each query triggers a WebSearch. The scanner extracts title, URL, and company from results.
+# Each query triggers a WebSearch. Use site: to filter by portal.
+# The scanner extracts title, URL, and company from results.
 
 search_queries:
-
-  # ==========================================================
-  # INDIA — PRIMARY MARKET (10 queries)
-  # India is the primary target. These queries cast the widest
-  # net across all major India job portals and ATS platforms.
-  # ==========================================================
-
-  - name: Naukri — PMM Senior India
-    query: 'site:naukri.com "Product Marketing Manager" OR "Senior PMM" OR "Head of Product Marketing" Bengaluru OR Mumbai OR "Delhi NCR" OR Hyderabad OR Pune'
+  # -- Ashby --
+  - name: Ashby — AI PM
+    query: 'site:jobs.ashbyhq.com "AI Product Manager" OR "Senior Product Manager AI" remote'
     enabled: true
 
-  - name: Naukri — PMM B2B SaaS India
-    query: 'site:naukri.com "Product Marketing" "B2B" OR "SaaS" OR "enterprise" OR "Go-to-Market" Bengaluru OR Mumbai OR Hyderabad OR Pune'
+  - name: Ashby — Solutions Architect
+    query: 'site:jobs.ashbyhq.com "Solutions Architect" AI OR automation remote'
     enabled: true
 
-  - name: iimjobs — Senior PMM / Head of Marketing
-    query: 'site:iimjobs.com "Product Marketing" OR "PMM" OR "Go-to-Market" OR "GTM" Senior OR Lead OR Director OR Head OR VP'
+  - name: Ashby — AI Engineer
+    query: 'site:jobs.ashbyhq.com "AI Engineer" OR "LLM Engineer" OR "Forward Deployed" remote'
     enabled: true
 
-  - name: Indeed India — PMM Bengaluru / Mumbai
-    query: 'site:indeed.co.in "Product Marketing Manager" OR "Senior PMM" OR "Head of Product Marketing" Bengaluru OR Mumbai OR Hyderabad OR Pune OR "Delhi"'
+  - name: Ashby — Agentic
+    query: 'site:jobs.ashbyhq.com "Agentic" OR "AI Agent" OR "Automation Architect" remote'
     enabled: true
 
-  - name: Foundit — PMM Senior India
-    query: 'site:foundit.in "Product Marketing Manager" OR "Senior PMM" OR "Head of Marketing" OR "GTM Manager" Bengaluru OR Mumbai OR Hyderabad OR Delhi'
+  # -- Greenhouse --
+  - name: Greenhouse — AI PM
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "AI Product Manager" OR "Senior Product Manager" AI remote'
     enabled: true
 
-  - name: HiRist — PMM Tech India
-    query: 'site:hirist.tech "Product Marketing" OR "PMM" OR "Growth Marketing" OR "Go-to-Market" Bengaluru OR Mumbai OR Hyderabad'
+  - name: Greenhouse — SA & FDE
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Solutions Architect" OR "Forward Deployed" AI remote'
     enabled: true
 
-  - name: Cutshort — PMM India startups
-    query: 'site:cutshort.io "Product Marketing" OR "PMM" OR "Go-to-Market" Bengaluru OR Mumbai OR remote India'
+  - name: Greenhouse — AI Engineer
+    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "AI Engineer" OR "LLM" OR "Agentic" remote'
     enabled: true
 
-  - name: Instahyre — PMM India
-    query: 'site:instahyre.com "Product Marketing" OR "PMM" OR "Growth Marketing" Bengaluru OR Mumbai OR Delhi OR Hyderabad'
+  # -- Workable --
+  - name: Workable — AI Roles
+    query: 'site:apply.workable.com "AI" "Product Manager" OR "Solutions Architect" OR "AI Engineer" remote'
     enabled: true
 
-  - name: Wellfound — PMM India startups
-    query: 'site:wellfound.com "Product Marketing" OR "PMM" OR "Go-to-Market" India Bengaluru OR Mumbai OR remote'
+  # -- No-Code / Low-Code / Automation --
+  - name: Ashby — No-Code & Automation
+    query: 'site:jobs.ashbyhq.com "no-code" OR "low-code" OR "automation engineer" OR "n8n" OR "Make" OR "Airtable" remote senior'
     enabled: true
 
-  - name: LinkedIn — PMM India (Bengaluru / Mumbai / Hyderabad)
-    query: '"Product Marketing Manager" OR "Senior PMM" OR "Head of Product Marketing" OR "Director Product Marketing" "Bengaluru" OR "Mumbai" OR "Hyderabad" OR "Pune" OR "Delhi NCR" -internship -junior'
+  - name: Greenhouse — No-Code & Automation
+    query: 'site:job-boards.greenhouse.io "no-code" OR "low-code" OR "automation engineer" OR "business systems" senior remote'
     enabled: true
 
-  # ATS portals with India location filter — surfaces companies
-  # NOT in the tracked list that post on Greenhouse/Ashby/Lever
-
-  - name: Greenhouse — PMM India location
-    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Product Marketing" India OR Bengaluru OR Mumbai OR Hyderabad'
+  - name: GTM Engineer — All portals
+    query: '"GTM Engineer" OR "RevOps Engineer" OR "Growth Engineer" automation Airtable OR Make OR Clay remote'
     enabled: true
 
-  - name: Ashby — PMM India location
-    query: 'site:jobs.ashbyhq.com "Product Marketing" OR "PMM" India OR Bengaluru OR Mumbai OR Hyderabad'
+  # -- Voice AI & Conversational AI --
+  - name: Voice AI — FDE & SA
+    query: 'site:job-boards.greenhouse.io OR site:jobs.ashbyhq.com "Voice AI" OR "Conversational AI" OR "Speech" "Solutions" OR "Forward Deployed" OR "Customer Engineer"'
     enabled: true
 
-  - name: Lever — PMM India location
-    query: 'site:jobs.lever.co "Product Marketing" OR "PMM" India OR Bengaluru OR Mumbai OR Hyderabad'
+  - name: Voice AI — AI Engineer
+    query: 'site:job-boards.greenhouse.io OR site:jobs.ashbyhq.com "Voice" OR "Speech" "AI Engineer" OR "Deployment" OR "Integration"'
     enabled: true
 
-  # ==========================================================
-  # VC JOB PORTALS — INDIA (9 queries)
-  # India VCs aggregate portfolio company jobs on their sites.
-  # These surface high-quality funded startup PMM roles that
-  # don't always appear on Naukri/LinkedIn in time.
-  # ==========================================================
-
-  - name: Peak XV Partners (Sequoia India) — PMM portfolio jobs
-    query: 'site:peakxv.com "Product Marketing" OR "PMM" OR "Marketing Manager" OR "Go-to-Market"'
+  # -- Contact Center AI --
+  - name: Contact Center AI — SA & SE
+    query: '"contact center" OR "customer service" "AI" "Solutions Architect" OR "Solutions Engineer" OR "Forward Deployed" remote'
     enabled: true
 
-  - name: Accel India — PMM portfolio jobs
-    query: 'site:accel.com/jobs "Product Marketing" OR "PMM" OR "Marketing" India OR Bengaluru OR Mumbai'
+  # -- FDE specific (cross-portal) --
+  - name: FDE & Deployed Engineer — All portals
+    query: '"Forward Deployed Engineer" OR "Deployed Engineer" OR "Deployment Engineer" AI site:job-boards.greenhouse.io OR site:jobs.ashbyhq.com OR site:jobs.lever.co'
     enabled: true
 
-  - name: Lightspeed India — PMM portfolio jobs
-    query: 'site:lsvp.com/jobs OR site:lightspeedindia.com "Product Marketing" OR "PMM" OR "Marketing Manager"'
+  # -- Remote-friendly Europe boards --
+
+  - name: Remotive — AI/DevRel/SA/FDE
+    query: 'site:remotive.com "AI Engineer" OR "Developer Advocate" OR "Solutions Architect" OR "Forward Deployed" OR "DevRel" Europe'
     enabled: true
 
-  - name: Elevation Capital — PMM portfolio jobs
-    query: 'site:elevationcapital.com "Product Marketing" OR "PMM" OR "Marketing" jobs OR careers'
+  - name: WeWorkRemotely — AI & DX
+    query: 'site:weworkremotely.com "AI" OR "DevRel" OR "Solutions Engineer" OR "Forward Deployed" OR "Founding Engineer"'
     enabled: true
 
-  - name: Matrix Partners India — PMM portfolio jobs
-    query: 'site:matrixpartners.in "Product Marketing" OR "PMM" OR "Marketing Manager" jobs OR careers OR portfolio'
+  - name: Working Nomads — AI/DevRel/SA
+    query: 'site:workingnomads.com "AI Engineer" OR "Developer Advocate" OR "Solutions Architect" OR "Forward Deployed"'
     enabled: true
 
-  - name: Nexus Venture Partners — PMM portfolio jobs
-    query: 'site:nexusvp.com "Product Marketing" OR "PMM" OR "Marketing" jobs OR careers'
+  - name: EU Remote Jobs — AI/DevRel/SA
+    query: 'site:euremotejobs.com "AI" OR "DevRel" OR "Solutions Architect" OR "Forward Deployed" OR "Founding Engineer"'
     enabled: true
 
-  - name: Blume Ventures — PMM portfolio jobs
-    query: 'site:blume.vc "Product Marketing" OR "PMM" OR "Marketing Manager" jobs OR careers'
+  - name: RemoteOK — AI/DevRel/SA
+    query: 'site:remoteok.com "AI Engineer" OR "Developer Advocate" OR "Solutions Architect" OR "Forward Deployed" OR "Founding Engineer"'
     enabled: true
 
-  - name: 3one4 Capital — PMM portfolio jobs
-    query: 'site:3one4.vc "Product Marketing" OR "PMM" OR "Marketing" jobs OR careers OR portfolio'
+  # -- Specialized AI / Dev-Tools / FDE boards --
+
+  - name: ai-jobs.net — DevRel/SA/FDE
+    query: 'site:ai-jobs.net "Developer Advocate" OR "Solutions Architect" OR "Forward Deployed" OR "DevRel" remote Europe'
     enabled: true
 
-  - name: Chiratae Ventures — PMM portfolio jobs
-    query: 'site:chiratae.com "Product Marketing" OR "PMM" OR "Marketing Manager" jobs OR careers'
+  - name: ai-jobs.net — Founding/Applied AI
+    query: 'site:ai-jobs.net "Founding Engineer" OR "Applied AI Engineer" OR "Founding" remote'
     enabled: true
 
-  # ==========================================================
-  # SINGAPORE / ASEAN — SECONDARY MARKET (4 queries)
-  # ==========================================================
-
-  - name: MyCareersFuture — PMM Singapore
-    query: 'site:mycareersfuture.gov.sg "Product Marketing Manager" OR "Senior PMM" OR "Head of Marketing" OR "Go-to-Market"'
+  - name: fwddeploy.com — Forward Deployed roles
+    query: 'site:fwddeploy.com "Forward Deployed" OR "Deployed Engineer" remote Europe OR EMEA'
     enabled: true
 
-  - name: LinkedIn — PMM Singapore / ASEAN
-    query: '"Product Marketing Manager" OR "Senior PMM" OR "Head of Product Marketing" Singapore OR "Southeast Asia" OR ASEAN -internship -junior'
+  - name: YC Jobs — DevRel/SA/FDE/Founding
+    query: 'site:ycombinator.com/jobs OR site:workatastartup.com "Forward Deployed" OR "Developer Advocate" OR "Founding Engineer" OR "Solutions Architect" remote'
     enabled: true
 
-  - name: JobStreet — PMM ASEAN
-    query: 'site:jobstreet.com "Product Marketing" OR "PMM" Singapore OR Malaysia OR Indonesia OR Thailand OR Philippines'
+  - name: YC Jobs — Applied AI
+    query: 'site:workatastartup.com "Applied AI" OR "AI Engineer" OR "AI Agent" remote Europe'
     enabled: true
 
-  - name: Greenhouse / Ashby — PMM Singapore APAC
-    query: 'site:boards.greenhouse.io OR site:jobs.ashbyhq.com "Product Marketing" Singapore OR APAC OR "Southeast Asia"'
+  # -- Spanish market specialized (high-value for Madrid/Barcelona-based candidates) --
+
+  - name: Manfred — Tech Senior España
+    query: 'site:getmanfred.com/en/job-offers "Solutions Architect" OR "DevRel" OR "Forward Deployed" OR "AI Engineer" OR "Founding"'
     enabled: true
 
-  # ==========================================================
-  # MIDDLE EAST — SECONDARY MARKET (4 queries)
-  # ==========================================================
-
-  - name: LinkedIn — PMM Dubai / UAE / Saudi
-    query: '"Product Marketing Manager" OR "Senior PMM" OR "Head of Marketing" Dubai OR UAE OR "Abu Dhabi" OR Riyadh OR "Saudi Arabia" -internship -junior'
+  - name: Manfred — Remote AI/Senior
+    query: 'site:getmanfred.com "remote" "AI" OR "Senior" OR "Staff" OR "Lead"'
     enabled: true
 
-  - name: Bayt — PMM GCC
-    query: 'site:bayt.com "Product Marketing Manager" OR "PMM" OR "Go-to-Market" OR "Head of Marketing" Dubai OR UAE OR "Saudi Arabia" OR Riyadh OR Qatar OR Doha'
+  - name: Tecnoempleo — España IT
+    query: 'site:tecnoempleo.com "AI Engineer" OR "Solutions Architect" OR "DevRel" OR "Forward Deployed" OR "Founding Engineer"'
     enabled: true
 
-  - name: GulfTalent — PMM GCC
-    query: 'site:gulftalent.com "Product Marketing" OR "PMM" OR "Growth Marketing" Dubai OR UAE OR Riyadh OR Doha OR "Abu Dhabi"'
+  - name: Tecnoempleo — Remoto Senior
+    query: 'site:tecnoempleo.com "remoto" OR "remote" Senior "AI" OR "Architect" OR "Lead"'
     enabled: true
 
-  - name: Naukrigulf — PMM Gulf
-    query: 'site:naukrigulf.com "Product Marketing Manager" OR "Head of Marketing" OR "Senior PMM" Dubai OR UAE OR Saudi OR Riyadh'
+  - name: JobFluent — Spain startups
+    query: 'site:jobfluent.com Madrid OR Barcelona "AI" OR "Engineer" OR "Solutions" OR "DevRel"'
     enabled: true
 
-  # ==========================================================
-  # REMOTE US/EMEA — TERTIARY (fully remote only) (5 queries)
-  # ==========================================================
-
-  - name: Ashby — PMM Remote global
-    query: 'site:jobs.ashbyhq.com "Product Marketing Manager" OR "Senior PMM" OR "Head of Product Marketing" remote'
+  - name: Welcome to the Jungle — Spain tech
+    query: 'site:welcometothejungle.com Spain OR Madrid OR Barcelona "AI Engineer" OR "Solutions Architect" OR "DevRel" OR "Forward Deployed"'
     enabled: true
 
-  - name: Greenhouse — PMM Remote global
-    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Product Marketing Manager" OR "Senior PMM" remote'
+  # -- DevRel-specific boards --
+
+  - name: DevRelX Jobs
+    query: 'site:devrelx.com/jobs remote OR Europe OR EMEA'
     enabled: true
 
-  - name: Himalayas — PMM Remote
-    query: 'site:himalayas.app "Product Marketing" OR "PMM" remote'
+  - name: TrueUp — DevRel roles
+    query: 'site:trueup.io/devrel OR site:trueup.io "Developer Advocate" OR "DevRel" remote Europe'
     enabled: true
 
-  - name: WeWorkRemotely — PMM
-    query: 'site:weworkremotely.com "Product Marketing" OR "PMM"'
+  - name: Remote Rocketship — DevRel
+    query: 'site:remoterocketship.com/jobs/developer-relations OR site:remoterocketship.com "DevRel" remote'
     enabled: true
 
-  - name: YC Jobs — PMM Remote
-    query: 'site:ycombinator.com/jobs OR site:workatastartup.com "Product Marketing" OR "PMM" remote'
+  - name: DevRel Job board
+    query: 'site:devreljob.com remote OR Europe OR EMEA'
     enabled: true
 
-  # -- Tier 8 global companies: remote or visa relocation only --
+  # -- European / global aggregators --
 
-  - name: Greenhouse — AI Labs PMM Remote/Relocation
-    query: 'site:boards.greenhouse.io OR site:job-boards.greenhouse.io "Product Marketing" AI OR "developer marketing" remote OR "visa sponsorship" OR "relocation"'
+  - name: Himalayas — Remote AI/Dev-tools
+    query: 'site:himalayas.app "AI Engineer" OR "Solutions Architect" OR "Developer Advocate" OR "Forward Deployed" OR "Founding Engineer" Europe'
     enabled: true
 
-  - name: Ashby — AI/DevTool PMM Remote/Relocation
-    query: 'site:jobs.ashbyhq.com "Product Marketing" OR "PMM" OR "developer marketing" remote OR "visa sponsorship" OR "work anywhere"'
+  - name: Jooble — España Tech Senior
+    query: 'site:jooble.org "AI Engineer" OR "Solutions Architect" OR "DevRel" Madrid OR remote España'
     enabled: true
 
-  - name: Voice AI Companies — PMM Remote
-    query: '"ElevenLabs" OR "PolyAI" OR "Hume AI" OR "Deepgram" OR "Vapi" "Product Marketing" OR "PMM" remote'
+  - name: EU Data Jobs — AI/ML Europe
+    query: 'site:eudatajobs.com "AI" OR "ML" OR "Data" "Engineer" OR "Architect" remote Europe'
     enabled: true
 
-  - name: Contact Center AI — PMM Remote
-    query: '"Ada" OR "LivePerson" OR "Sierra AI" OR "Talkdesk" OR "Genesys" "Product Marketing" OR "PMM" remote'
-    enabled: true
-
-  - name: LLMOps/Automation — PMM Remote
-    query: '"Weights Biases" OR "Langfuse" OR "Cognigy" OR "n8n" OR "Zapier" OR "Make.com" "Product Marketing" OR "PMM" remote'
-    enabled: true
-
-  - name: European Tech — PMM Remote
-    query: '"Factorial" OR "Attio" OR "Tinybird" OR "Clarity AI" OR "TravelPerk" "Product Marketing" OR "PMM" remote OR "visa sponsorship"'
+  - name: HN Who's Hiring — Remote AI
+    query: 'site:news.ycombinator.com OR site:hnrss.org "AI Engineer" OR "Forward Deployed" OR "DevRel" OR "Founding Engineer" remote'
     enabled: true
 
 # -- Tracked companies --
 # Companies whose career pages are checked directly.
-
+# scan_method: playwright (default), websearch, greenhouse_api
+# For Greenhouse companies, add api: field for faster structured JSON access.
+#
+# Provider routing (scan.mjs):
+#   By default each entry is auto-detected from `careers_url` against the
+#   loaded providers in providers/*.mjs (ashby, greenhouse, lever — the
+#   first one whose detect() matches wins, alphabetical order).
+#
+#   Optional fields on a tracked_companies entry:
+#     provider: <id>     — force a specific provider, skipping detect().
+#                          Useful when careers_url is ambiguous or you want
+#                          to pin behavior. Value must match a loaded
+#                          provider's `id`.
+#     transport: http    — reserved for future transports. Defaults to http.
 
 tracked_companies:
 
-  # ============================================================
-  # TIER 1 — ENTERPRISE AI / AGENTIC PLATFORMS
-  # Direct overlap with Computer by DevRev ICP and experience.
-  # Abhinav has battle-tested positioning, competitive intel,
-  # and enterprise PoC playbook for exactly this segment.
-  # ============================================================
-
-  - name: Glean
-    careers_url: https://job-boards.greenhouse.io/gleanwork
-    api: https://boards-api.greenhouse.io/v1/boards/gleanwork/jobs
-    notes: "Palo Alto / India / remote. Enterprise AI search. DIRECT competitor to Computer by DevRev — Abhinav has competitive battlecards vs them."
-    enabled: true
-
-  - name: Moveworks
-    careers_url: https://job-boards.greenhouse.io/moveworks
-    api: https://boards-api.greenhouse.io/v1/boards/moveworks/jobs
-    notes: "Mountain View / remote. Enterprise AI assistant (now Salesforce). Same ICP as Computer by DevRev — enterprise IT, HR, ops automation."
-    enabled: true
-
-  - name: Kore.ai
-    careers_url: https://kore.ai/company/careers
-    scan_method: websearch
-    scan_query: 'site:kore.ai/company/careers OR "kore.ai" "Product Marketing" OR "PMM" OR "Marketing Manager"'
-    notes: "Hyderabad + Orlando. Enterprise conversational AI platform. Strong India presence. Direct ICP match to DevRev."
-    enabled: true
-
-  - name: Yellow.ai
-    careers_url: https://jobs.lever.co/yellowmessenger
-    notes: "Bengaluru. Enterprise conversational AI. India-built, global customer base. Strong PMM culture."
-    enabled: true
-
-  - name: Leena AI
-    careers_url: https://leena.ai/careers
-    scan_method: websearch
-    scan_query: 'site:leena.ai/careers "Product Marketing" OR "PMM" OR "Marketing"'
-    notes: "Bengaluru. Enterprise AI for ITSM and HR. Direct ICP match to Computer by DevRev enterprise buyers."
-    enabled: true
-
-  - name: Writer
-    careers_url: https://jobs.ashbyhq.com/writer
-    scan_method: websearch
-    scan_query: 'site:jobs.ashbyhq.com/writer "Product Marketing" OR "PMM"'
-    notes: "San Francisco / remote. Enterprise generative AI platform. Same enterprise buyer persona as Computer by DevRev."
-    enabled: true
-
-  - name: Observe.AI
-    careers_url: https://job-boards.greenhouse.io/observeai
-    api: https://boards-api.greenhouse.io/v1/boards/observeai/jobs
-    notes: "Bengaluru / San Francisco. Contact center AI. Enterprise GTM, India engineering hub. Series C."
-    enabled: true
-
-  - name: Uniphore
-    careers_url: https://uniphore.com/about/careers
-    scan_method: websearch
-    scan_query: 'site:uniphore.com/careers "Product Marketing" OR "PMM" OR "Marketing Manager"'
-    notes: "Chennai / Singapore / US. Enterprise conversational AI. India-founded, global enterprise sales motion."
-    enabled: true
-
-  # ============================================================
-  # TIER 2 — SALES ENABLEMENT & REVENUE INTELLIGENCE
-  # Abhinav built sales enablement from scratch at DevRev
-  # (battlecards, ROI calc, objection playbooks, 100% adoption).
-  # These companies would value that background directly.
-  # ============================================================
-
-  - name: Mindtickle
-    careers_url: https://job-boards.greenhouse.io/mindtickle
-    api: https://boards-api.greenhouse.io/v1/boards/mindtickle/jobs
-    notes: "Pune / San Francisco. Sales readiness platform. India-founded. PMM role is strategic — direct fit with DevRev sales enablement work."
-    enabled: true
-
-  - name: Highspot
-    careers_url: https://job-boards.greenhouse.io/highspot
-    api: https://boards-api.greenhouse.io/v1/boards/highspot/jobs
-    notes: "Seattle / remote. Sales enablement platform leader. Strong PMM team. Direct fit."
-    enabled: true
-
-  - name: Seismic
-    careers_url: https://job-boards.greenhouse.io/seismic
-    api: https://boards-api.greenhouse.io/v1/boards/seismic/jobs
-    notes: "San Diego / remote. Sales enablement platform. Enterprise buyer profile identical to DevRev. PMM is core."
-    enabled: true
-
-  - name: Gong
-    careers_url: https://job-boards.greenhouse.io/gong
-    api: https://boards-api.greenhouse.io/v1/boards/gong/jobs
-    notes: "Remote. Revenue intelligence. Abhinav ran win/loss analysis at DevRev — exact product category. Strong PMM culture."
-    enabled: true
-
-  - name: Clari
-    careers_url: https://job-boards.greenhouse.io/clari
-    api: https://boards-api.greenhouse.io/v1/boards/clari/jobs
-    notes: "Sunnyvale / remote. Revenue intelligence platform. Enterprise GTM, PMM-led growth. Win/loss expertise directly transferable."
-    enabled: true
-
-  - name: Outreach
-    careers_url: https://job-boards.greenhouse.io/outreach
-    api: https://boards-api.greenhouse.io/v1/boards/outreach/jobs
-    notes: "Seattle / remote. Sales execution platform. Enterprise SaaS, strong PMM team."
-    enabled: true
-
-  # ============================================================
-  # TIER 3 — INDIA B2B SAAS (STRONG PMM + IIM-A FIT)
-  # India-founded, enterprise/mid-market SaaS companies where
-  # IIM-A pedigree and enterprise GTM track record stand out.
-  # ============================================================
-
-  - name: Freshworks
-    careers_url: https://job-boards.greenhouse.io/freshworks
-    api: https://boards-api.greenhouse.io/v1/boards/freshworks/jobs
-    notes: "Chennai / Bengaluru. India's largest public SaaS. CRM, ITSM, CX. Enterprise + SMB. Strong PMM function."
-    enabled: true
-
-  - name: BrowserStack
-    careers_url: https://job-boards.greenhouse.io/browserstack
-    api: https://boards-api.greenhouse.io/v1/boards/browserstack/jobs
-    notes: "Mumbai. Developer testing platform. Enterprise + developer PMM. India-built, global customer base. Series B unicorn."
-    enabled: true
-
-  - name: Postman
-    careers_url: https://job-boards.greenhouse.io/postman
-    api: https://boards-api.greenhouse.io/v1/boards/postman/jobs
-    notes: "Bengaluru / San Francisco. API platform. Developer + enterprise PMM. 35Mn users. Abhinav's enterprise + developer audience experience is directly relevant."
-    enabled: true
-
-  - name: Chargebee
-    careers_url: https://job-boards.greenhouse.io/chargebee
-    api: https://boards-api.greenhouse.io/v1/boards/chargebee/jobs
-    notes: "Chennai / global. Subscription management SaaS. Pricing & packaging expertise (Abhinav designed 3-tier model at DevRev) is key differentiator here."
-    enabled: true
-
-  - name: Whatfix
-    careers_url: https://job-boards.greenhouse.io/whatfix
-    api: https://boards-api.greenhouse.io/v1/boards/whatfix/jobs
-    notes: "Bengaluru. Digital adoption platform for enterprises. Same enterprise buyer (IT, procurement, ops). Series D. PMM-led growth."
-    enabled: true
-
-  - name: Sprinklr
-    careers_url: https://job-boards.greenhouse.io/sprinklr
-    api: https://boards-api.greenhouse.io/v1/boards/sprinklr/jobs
-    notes: "NYC + Bengaluru. Unified CXM enterprise platform. Strong India PMM presence. Enterprise buyers match DevRev profile."
-    enabled: true
-
-  - name: Icertis
-    careers_url: https://job-boards.greenhouse.io/icertis
-    api: https://boards-api.greenhouse.io/v1/boards/icertis/jobs
-    notes: "Pune / Seattle. Contract lifecycle management SaaS unicorn. Enterprise procurement, legal, ops buyers — identical to PoC stakeholder map from DevRev."
-    enabled: true
-
-  - name: Zenoti
-    careers_url: https://job-boards.greenhouse.io/zenoti
-    api: https://boards-api.greenhouse.io/v1/boards/zenoti/jobs
-    notes: "Hyderabad / Bellevue. Vertical SaaS for wellness/hospitality. Enterprise GTM. India-built, global market."
-    enabled: true
-
-  - name: Druva
-    careers_url: https://job-boards.greenhouse.io/druva
-    api: https://boards-api.greenhouse.io/v1/boards/druva/jobs
-    notes: "Pune / Santa Clara. Cloud data protection SaaS. Enterprise security buyers — navigated IT security review at DevRev is directly relevant."
-    enabled: true
-
-  - name: Darwinbox
-    careers_url: https://job-boards.greenhouse.io/darwinbox
-    api: https://boards-api.greenhouse.io/v1/boards/darwinbox/jobs
-    notes: "Hyderabad. HRtech SaaS. India enterprise + ASEAN + ME expansion. PMM role is growing. IIM-A pedigree valued."
-    enabled: true
-
-  - name: Leadsquared
-    careers_url: https://job-boards.greenhouse.io/leadsquared
-    api: https://boards-api.greenhouse.io/v1/boards/leadsquared/jobs
-    notes: "Bengaluru. Sales automation + CRM for India market. Mid-market + enterprise. PMM growing."
-    enabled: true
-
-  - name: Razorpay
-    careers_url: https://razorpay.com/jobs
-    scan_method: websearch
-    scan_query: 'site:razorpay.com/jobs "Product Marketing" OR "PMM" OR "Senior Marketing"'
-    notes: "Bengaluru. India's leading payments + neo-banking fintech. B2B SaaS motion for enterprise. Brand and product PMM roles."
-    enabled: true
-
-  - name: Zoho
-    careers_url: https://careers.zohocorp.com
-    scan_method: websearch
-    scan_query: 'site:careers.zohocorp.com "Product Marketing" OR "Marketing Manager" OR "Senior Marketing"'
-    notes: "Chennai. India's largest bootstrapped SaaS suite. Senior PMM roles exist for specific products. Strong brand."
-    enabled: true
-
-  # ============================================================
-  # TIER 4 — CUSTOMER ENGAGEMENT / PRODUCT ANALYTICS / CDP
-  # Adjacent to Abhinav's B2B SaaS + consumer background.
-  # Strong PMM cultures, data-driven, enterprise-focused.
-  # ============================================================
-
-  - name: CleverTap
-    careers_url: https://jobs.lever.co/clevertap
-    notes: "Mumbai / Bengaluru. Customer engagement + retention SaaS. India-first, global enterprise. PMM team values data-driven background."
-    enabled: true
-
-  - name: MoEngage
-    careers_url: https://job-boards.greenhouse.io/moengage
-    api: https://boards-api.greenhouse.io/v1/boards/moengage/jobs
-    notes: "Bengaluru / global. Customer engagement platform. Expanding APAC + ME. Strong India PMM team."
-    enabled: true
-
-  - name: Amplitude
-    careers_url: https://job-boards.greenhouse.io/amplitude
-    api: https://boards-api.greenhouse.io/v1/boards/amplitude/jobs
-    notes: "Remote. Product analytics platform. PLG + enterprise PMM. Strong PMM culture — data-driven storytelling is core."
-    enabled: true
-
-  - name: Braze
-    careers_url: https://job-boards.greenhouse.io/braze
-    api: https://boards-api.greenhouse.io/v1/boards/braze/jobs
-    notes: "NYC / Singapore / remote. Customer engagement platform. Singapore APAC hub. Enterprise PMM."
-    enabled: true
-
-  - name: Pendo
-    careers_url: https://job-boards.greenhouse.io/pendo
-    api: https://boards-api.greenhouse.io/v1/boards/pendo/jobs
-    notes: "Remote. Product analytics + in-app guidance. PLG + enterprise dual motion. Abhinav's MAU/adoption growth story lands well here."
-    enabled: true
-
-  - name: Mixpanel
-    careers_url: https://job-boards.greenhouse.io/mixpanel
-    api: https://boards-api.greenhouse.io/v1/boards/mixpanel/jobs
-    notes: "San Francisco / remote. Product analytics. PMM roles for self-serve + enterprise."
-    enabled: true
-
-  - name: Intercom
-    careers_url: https://job-boards.greenhouse.io/intercom
-    api: https://boards-api.greenhouse.io/v1/boards/intercom/jobs
-    notes: "Dublin / remote. AI customer service. Enterprise GTM. Strong content + PMM culture."
-    enabled: true
-
-  # ============================================================
-  # TIER 5 — GLOBAL PREMIUM (REMOTE-FRIENDLY, STRONG PMM)
-  # High-brand companies with remote-open PMM roles.
-  # IIM-A + $10Mn ARR story clears the bar at these orgs.
-  # ============================================================
-
-  - name: HubSpot
-    careers_url: https://job-boards.greenhouse.io/hubspot
-    api: https://boards-api.greenhouse.io/v1/boards/hubspot/jobs
-    notes: "Remote-friendly. CRM + marketing platform. Best-in-class PMM programs. India office in Bengaluru."
-    enabled: true
-
-  - name: Atlassian
-    careers_url: https://job-boards.greenhouse.io/atlassian
-    api: https://boards-api.greenhouse.io/v1/boards/atlassian/jobs
-    notes: "Sydney / Bengaluru / remote. Dev tools. India offices. PLG + enterprise PMM. Abhinav's developer audience experience is relevant."
-    enabled: true
-
-  - name: Salesforce
-    careers_url: https://careers.salesforce.com
-    scan_method: websearch
-    scan_query: 'site:careers.salesforce.com "Product Marketing" OR "PMM" India OR Singapore OR remote APAC'
-    notes: "India offices (Hyderabad, Bengaluru). Enterprise CRM + Agentforce (AI agents). Strong India PMM org. Prestige match for IIM-A profile."
-    enabled: true
-
-  - name: Notion
-    careers_url: https://job-boards.greenhouse.io/notion
-    api: https://boards-api.greenhouse.io/v1/boards/notion/jobs
-    notes: "San Francisco / remote. Productivity + collaboration platform. Enterprise expansion PMM. Remote-first."
-    enabled: true
-
-  - name: Figma
-    careers_url: https://job-boards.greenhouse.io/figma
-    api: https://boards-api.greenhouse.io/v1/boards/figma/jobs
-    notes: "San Francisco / remote. Design platform. Enterprise expansion PMM. Adobe acquisition blocked — now independent again."
-    enabled: true
-
-  - name: Canva
-    careers_url: https://job-boards.greenhouse.io/canva
-    api: https://boards-api.greenhouse.io/v1/boards/canva/jobs
-    notes: "Sydney / Singapore / remote. Design platform. APAC-headquartered unicorn. Singapore hub relevant for Abhinav."
-    enabled: true
+  # -- AI Labs & LLM providers --
 
   - name: Anthropic
     careers_url: https://job-boards.greenhouse.io/anthropic
     api: https://boards-api.greenhouse.io/v1/boards/anthropic/jobs
-    notes: "San Francisco / remote. AI safety + products (Claude). PMM for enterprise AI. Abhinav's enterprise AI PMM background is highly relevant."
     enabled: true
-
-  - name: Perplexity
-    careers_url: https://jobs.ashbyhq.com/perplexity
-    scan_method: websearch
-    scan_query: 'site:jobs.ashbyhq.com/perplexity "Product Marketing" OR "PMM" OR "Marketing"'
-    notes: "AI-native search + enterprise API. Growing PMM team. Abhinav's AI product storytelling experience directly applies."
-    enabled: true
-
-  # ============================================================
-  # TIER 6 — ASEAN TARGETS
-  # Companies where APAC market expertise and enterprise SaaS
-  # background add real differentiation.
-  # ============================================================
-
-  - name: Grab
-    careers_url: https://job-boards.greenhouse.io/grab
-    api: https://boards-api.greenhouse.io/v1/boards/grab/jobs
-    notes: "Singapore. SEA super-app. Large marketing org. B2B (GrabForBusiness) and consumer PMM roles."
-    enabled: true
-
-  - name: Carousell
-    careers_url: https://jobs.lever.co/carousell
-    notes: "Singapore. C2C + B2B marketplace. SEA-wide. Senior PMM roles for platform/B2B side."
-    enabled: true
-
-  - name: PropertyGuru
-    careers_url: https://job-boards.greenhouse.io/propertyguru
-    api: https://boards-api.greenhouse.io/v1/boards/propertyguru/jobs
-    notes: "Singapore. Property marketplace + data/SaaS platform across SEA. B2B data PMM roles."
-    enabled: true
-
-  - name: Traveloka
-    careers_url: https://www.traveloka.com/en/careers
-    scan_method: websearch
-    scan_query: 'site:traveloka.com/en/careers "Product Marketing" OR "PMM" OR "Marketing Manager"'
-    notes: "Jakarta / Singapore. SEA travel unicorn. Enterprise B2B and consumer verticals. Indonesia + SG offices."
-    enabled: true
-
-  # ============================================================
-  # TIER 7 — MIDDLE EAST TARGETS
-  # Companies where India-to-ME is a natural career arc and
-  # enterprise B2B SaaS experience is scarce locally.
-  # ============================================================
-
-  - name: Careem
-    careers_url: https://job-boards.greenhouse.io/careem
-    api: https://boards-api.greenhouse.io/v1/boards/careem/jobs
-    notes: "Dubai. Uber's Middle East super-app. Large marketing org across GCC. B2B (Careem for Business) and consumer."
-    enabled: true
-
-  - name: Tabby
-    careers_url: https://jobs.ashbyhq.com/tabby
-    scan_method: websearch
-    scan_query: 'site:jobs.ashbyhq.com/tabby "Marketing" OR "PMM" OR "Growth"'
-    notes: "Dubai / Riyadh. BNPL + fintech leader in GCC. Fast-growing, PMM roles emerging."
-    enabled: true
-
-  - name: Unifonic
-    careers_url: https://unifonic.com/careers
-    scan_method: websearch
-    scan_query: 'site:unifonic.com/careers "Product Marketing" OR "PMM" OR "Marketing Manager"'
-    notes: "Riyadh. Cloud communication + customer engagement platform. B2B SaaS, MENA focus. Direct buyer profile match."
-    enabled: true
-
-  - name: Noon
-    careers_url: https://noon.com/uae-en/careers
-    scan_method: websearch
-    scan_query: 'site:noon.com/careers OR "noon.com" "Product Marketing" OR "Marketing Manager" Dubai OR UAE'
-    notes: "Dubai. UAE's largest e-commerce + digital services platform. Consumer + B2B (Noon Business). Strong PMM org."
-    enabled: true
-
-  - name: Salla
-    careers_url: https://salla.com/careers
-    scan_method: websearch
-    scan_query: 'site:salla.com/careers "Product Marketing" OR "PMM" OR "Marketing"'
-    notes: "Jeddah. Saudi e-commerce SaaS platform for merchants. B2B SaaS, fast-growing, ME-native."
-    enabled: true
-
-  # ============================================================
-  # TIER 8 — GLOBAL US/EMEA COMPANIES
-  # Condition: ONLY pursue if role is fully remote OR company
-  # explicitly offers visa sponsorship / relocation package.
-  # Score location as 4.0 max unless remote confirmed.
-  # Glean, Salesforce, Gong, Anthropic already tracked in T1–T5.
-  # ============================================================
-
-  # -- AI Labs --
 
   - name: OpenAI
     careers_url: https://openai.com/careers
     scan_method: websearch
-    scan_query: 'site:openai.com/careers "Product Marketing" OR "PMM" OR "developer marketing" remote OR "relocation"'
-    notes: "San Francisco. ChatGPT/GPT-4/enterprise API. PMM team for B2B + developer products. Remote roles exist. [T8: remote or relocation only]"
+    scan_query: 'site:openai.com/careers "Solutions" OR "Forward Deployed" OR "AI Engineer"'
     enabled: true
 
-  - name: Mistral AI
-    careers_url: https://jobs.lever.co/mistral
-    notes: "Paris. European frontier AI lab. PMM for enterprise/API products. EU relocation possible. [T8: remote or relocation only]"
-    enabled: true
-
-  - name: Cohere
-    careers_url: https://jobs.ashbyhq.com/cohere
-    notes: "Toronto / remote. Enterprise LLM provider. PMM for B2B API and enterprise. Remote-friendly. [T8: remote or relocation only]"
-    enabled: true
-
-  - name: LangChain
-    careers_url: https://jobs.ashbyhq.com/langchain
-    notes: "Remote. Developer framework + LangSmith platform. Developer marketing + PMM roles. Fully remote. [T8: remote or relocation only]"
-    enabled: true
-
-  - name: Pinecone
-    careers_url: https://jobs.ashbyhq.com/pinecone
-    notes: "NYC / remote. Vector database leader. PMM for developer + enterprise segments. Remote roles. [T8: remote or relocation only]"
-    enabled: true
-
-  # -- Voice AI --
-
-  - name: ElevenLabs
-    careers_url: https://jobs.ashbyhq.com/elevenlabs
-    scan_method: websearch
-    scan_query: 'site:jobs.ashbyhq.com/elevenlabs "Marketing" OR "PMM"'
-    notes: "Remote-first. Voice AI TTS leader. PMM for enterprise + developer segments. Fast-growing. [T8: remote or relocation only]"
-    enabled: true
+  # -- Voice AI & Conversational AI --
 
   - name: PolyAI
     careers_url: https://job-boards.eu.greenhouse.io/polyai
     api: https://boards-api.greenhouse.io/v1/boards/polyai/jobs
-    notes: "London UK. Voice AI for enterprise contact centers. PMM for enterprise GTM. UK relocation possible. [T8: remote or relocation only]"
+    notes: "UK. Voice AI for enterprise contact centers."
     enabled: true
 
   - name: Parloa
     careers_url: https://job-boards.eu.greenhouse.io/parloa
     api: https://boards-api.greenhouse.io/v1/boards/parloa/jobs
-    notes: "Berlin. Voice AI for enterprise. PMM roles. EU relocation / visa route possible. [T8: remote or relocation only]"
+    notes: "Berlin EMEA. Voice AI enterprise."
+    enabled: true
+
+  - name: Intercom
+    careers_url: https://job-boards.greenhouse.io/intercom
+    api: https://boards-api.greenhouse.io/v1/boards/intercom/jobs
+    notes: "Dublin EMEA. Fin AI agent."
     enabled: true
 
   - name: Hume AI
     careers_url: https://job-boards.greenhouse.io/humeai
     api: https://boards-api.greenhouse.io/v1/boards/humeai/jobs
-    notes: "NYC. Empathic voice AI. PMM for developer + enterprise. [T8: remote or relocation only]"
+    notes: "NYC. Empathic voice AI."
+    enabled: true
+
+  - name: ElevenLabs
+    careers_url: https://jobs.ashbyhq.com/elevenlabs
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/elevenlabs'
+    notes: "Voice AI TTS leader."
     enabled: true
 
   - name: Deepgram
     careers_url: https://jobs.ashbyhq.com/deepgram
     scan_method: websearch
-    scan_query: 'site:deepgram.com/careers OR site:jobs.ashbyhq.com/deepgram "Marketing" OR "PMM"'
-    notes: "STT/TTS API platform. Developer marketing + PMM. Remote-friendly. [T8: remote or relocation only]"
+    scan_query: 'site:deepgram.com/careers OR "deepgram" "Solutions" OR "AI Engineer" site:jobs.ashbyhq.com'
+    notes: "STT/TTS APIs."
     enabled: true
 
   - name: Vapi
     careers_url: https://jobs.ashbyhq.com/vapi
     scan_method: websearch
-    scan_query: 'site:jobs.ashbyhq.com/vapi "Marketing" OR "PMM"'
-    notes: "Voice AI infrastructure for developers. Developer marketing + GTM. [T8: remote or relocation only]"
+    scan_query: 'site:jobs.ashbyhq.com/vapi'
+    notes: "Voice AI infrastructure."
     enabled: true
 
   - name: Bland AI
     careers_url: https://jobs.ashbyhq.com/bland
     scan_method: websearch
-    scan_query: 'site:jobs.ashbyhq.com/bland "Marketing" OR "PMM"'
-    notes: "Voice phone agents. $65M Series B. Growing GTM team. [T8: remote or relocation only]"
+    scan_query: 'site:jobs.ashbyhq.com/bland'
+    notes: "Voice phone agents. $65M Series B."
     enabled: true
 
-  # -- AI Platforms --
+  # -- AI-native platforms (FDE/SA teams) --
 
   - name: Retool
     careers_url: https://retool.com/careers
     scan_method: websearch
-    scan_query: 'site:retool.com/careers "Product Marketing" OR "PMM" OR "developer marketing" remote OR "relocation"'
-    notes: "London / SF. Internal tools + AI platform. Strong PMM culture. Abhinav's enterprise GTM + developer audience experience fits well. [T8: remote or relocation only]"
+    scan_query: 'site:retool.com/careers "Deployed" OR "AI" OR "Solutions"'
+    notes: "London. Popularized Deployed Engineer role."
     enabled: true
 
   - name: Airtable
     careers_url: https://job-boards.greenhouse.io/airtable
     api: https://boards-api.greenhouse.io/v1/boards/airtable/jobs
-    notes: "SF / remote. No-code + AI platform. PMM for enterprise and PLG. [T8: remote or relocation only]"
+    notes: "No-code + AI platform."
     enabled: true
 
   - name: Vercel
     careers_url: https://job-boards.greenhouse.io/vercel
     api: https://boards-api.greenhouse.io/v1/boards/vercel/jobs
-    notes: "Remote. Frontend AI platform (v0.dev). Developer marketing + PMM. Fully remote team. [T8: remote or relocation only]"
+    notes: "AI SDK, v0.dev. Frontend AI tooling."
     enabled: true
 
   - name: Temporal
     careers_url: https://job-boards.greenhouse.io/temporal
     api: https://boards-api.greenhouse.io/v1/boards/temporal/jobs
-    notes: "Remote. Workflow orchestration platform. Developer + enterprise PMM. Remote-friendly. [T8: remote or relocation only]"
+    notes: "Workflow orchestration."
     enabled: true
 
   - name: Arize AI
     careers_url: https://job-boards.greenhouse.io/arizeai
     api: https://boards-api.greenhouse.io/v1/boards/arizeai/jobs
-    notes: "Remote. AI observability / LLMOps. PMM for ML/AI buyer persona — Abhinav's enterprise AI background is a strong match. [T8: remote or relocation only]"
+    notes: "LLMOps / AI observability."
     enabled: true
 
-  # -- Contact Center AI --
+  - name: RunPod
+    careers_url: https://job-boards.greenhouse.io/runpod
+    api: https://boards-api.greenhouse.io/v1/boards/runpod/jobs
+    notes: "GPU cloud for AI."
+    enabled: true
+
+  - name: Weights & Biases (CoreWeave)
+    careers_url: https://job-boards.greenhouse.io/coreweave
+    api: https://boards-api.greenhouse.io/v1/boards/coreweave/jobs
+    notes: "Acquired by CoreWeave (announced March 2025, closed May 2025). W&B roles now live on CoreWeave's Greenhouse board. Old Lever URL (jobs.lever.co/wandb) returns 404."
+    enabled: true
+
+  - name: Glean
+    careers_url: https://job-boards.greenhouse.io/gleanwork
+    api: https://boards-api.greenhouse.io/v1/boards/gleanwork/jobs
+    notes: "Enterprise AI search."
+    enabled: true
+
+  # -- Contact Center AI & CX --
 
   - name: Ada
     careers_url: https://job-boards.greenhouse.io/ada
     scan_method: websearch
-    scan_query: 'site:jobs.ashbyhq.com OR site:job-boards.greenhouse.io "ada" "Product Marketing" OR "PMM" remote'
-    notes: "Toronto + remote. AI customer service platform. Enterprise GTM. Remote-friendly. [T8: remote or relocation only]"
+    scan_query: '"ada.cx" OR "ada" "AI" "Solutions" OR "Engineer" site:jobs.ashbyhq.com OR site:job-boards.greenhouse.io'
+    notes: "Toronto + remote. AI customer service."
     enabled: true
 
   - name: LivePerson
     careers_url: https://liveperson.com/company/careers
     scan_method: websearch
-    scan_query: 'site:liveperson.com/careers "Product Marketing" OR "PMM" remote OR "EMEA"'
-    notes: "Remote EMEA. Conversational AI for enterprise. PMM roles for EU market. [T8: remote or relocation only]"
+    scan_query: 'site:liveperson.com/careers OR "liveperson" "Solutions" OR "AI" site:job-boards.greenhouse.io'
+    notes: "Remote EMEA. Conversational AI enterprise."
     enabled: true
 
   - name: Sierra
     careers_url: https://jobs.ashbyhq.com/sierra
     scan_method: websearch
-    scan_query: 'site:jobs.ashbyhq.com/sierra "Marketing" OR "PMM"'
-    notes: "SF. AI customer agent platform (Bret Taylor). Enterprise GTM. [T8: remote or relocation only]"
+    scan_query: '"sierra.ai" "AI" "Forward Deployed" OR "Applied" OR "Solutions" site:jobs.ashbyhq.com'
+    notes: "Bret Taylor (ex-CEO Salesforce). AI customer agents."
     enabled: true
 
   - name: Decagon
     careers_url: https://jobs.ashbyhq.com/decagon
     scan_method: websearch
-    scan_query: 'site:jobs.ashbyhq.com/decagon "Marketing" OR "PMM"'
-    notes: "AI customer support agents. Fast-growing Series B. [T8: remote or relocation only]"
+    scan_query: '"decagon" "AI" "Forward Deployed" OR "Solutions" site:jobs.ashbyhq.com'
+    notes: "AI customer support agents."
     enabled: true
+
+  # -- Enterprise comms & contact center --
 
   - name: Talkdesk
     careers_url: https://www.talkdesk.com/careers
     scan_method: websearch
-    scan_query: 'site:talkdesk.com/careers "Product Marketing" OR "PMM" remote OR "EMEA"'
-    notes: "Lisbon. Contact center AI cloud. EMEA PMM roles. EU relocation / remote possible. [T8: remote or relocation only]"
+    scan_query: 'site:talkdesk.com/careers "AI" OR "Solutions Architect" OR "AI Engineer"'
+    notes: "Lisbon. Contact center AI. EMEA friendly."
     enabled: true
-
-  - name: Genesys
-    careers_url: https://www.genesys.com/careers
-    scan_method: websearch
-    scan_query: 'site:genesys.com/careers "Product Marketing" OR "PMM" remote OR India OR APAC'
-    notes: "Contact center cloud + AI. Global enterprise. India offices exist. [T8: remote or relocation only]"
-    enabled: true
-
-  # -- Enterprise (additional) --
 
   - name: Twilio
     careers_url: https://www.twilio.com/en-us/company/jobs
     scan_method: websearch
-    scan_query: 'site:twilio.com/company/jobs "Product Marketing" OR "PMM" remote OR India OR Singapore'
-    notes: "Remote / India offices. Voice + messaging infra. Developer + enterprise PMM. India team exists. [T8: remote or India office preferred]"
+    scan_query: 'site:twilio.com/company/jobs "AI" OR "Voice" "Solutions" OR "Architect"'
+    notes: "Voice/messaging infrastructure."
     enabled: true
 
   - name: Dialpad
     careers_url: https://www.dialpad.com/careers
     scan_method: websearch
-    scan_query: 'site:dialpad.com/careers "Product Marketing" OR "PMM" remote OR "relocation"'
-    notes: "Voice AI for business comms. PMM for enterprise GTM. Remote roles. [T8: remote or relocation only]"
+    scan_query: '"dialpad" "AI" "Solutions" OR "Engineer" site:job-boards.greenhouse.io OR site:jobs.ashbyhq.com'
+    notes: "Voice AI for business comms."
     enabled: true
 
-  # -- LLMOps & AI Infra --
-
-  - name: Weights & Biases
-    careers_url: https://jobs.lever.co/wandb
-    notes: "Remote. MLOps / AI experiment tracking platform. PMM for developer + enterprise. Fully remote team. [T8: remote or relocation only]"
+  - name: Gong
+    careers_url: https://www.gong.io/careers
+    scan_method: websearch
+    scan_query: 'site:gong.io/careers "AI" OR "Solutions" OR "Architect"'
+    notes: "Revenue intelligence with voice AI."
     enabled: true
+
+  - name: Genesys
+    careers_url: https://www.genesys.com/careers
+    scan_method: websearch
+    scan_query: 'site:genesys.com/careers "AI" "Solutions Architect" OR "AI Engineer"'
+    notes: "Contact center cloud + AI."
+    enabled: true
+
+  - name: Salesforce
+    careers_url: https://careers.salesforce.com
+    scan_method: websearch
+    scan_query: 'site:careers.salesforce.com "Forward Deployed" OR "AI Engineer" OR "Agentforce"'
+    notes: "Agentforce = AI agents platform."
+    enabled: true
+
+  # -- AI infra & LLMOps --
 
   - name: Langfuse
     careers_url: https://langfuse.com/careers
     scan_method: websearch
-    scan_query: '"langfuse" careers "marketing" OR "PMM" OR "growth"'
-    notes: "Berlin. LLMOps / AI observability open-source platform. Early-stage, growing PMM. EU relocation possible. [T8: remote or relocation only]"
+    scan_query: '"langfuse" careers OR jobs "engineer" OR "solutions"'
+    notes: "Berlin. LLMOps / observability."
     enabled: true
 
   - name: Lindy
     careers_url: https://jobs.ashbyhq.com/lindy
     scan_method: websearch
-    scan_query: 'site:jobs.ashbyhq.com/lindy "Marketing" OR "PMM"'
-    notes: "AI agent management platform. PMM + GTM roles. [T8: remote or relocation only]"
+    scan_query: '"lindy.ai" "AI" "Forward Deployed" OR "Solutions" site:jobs.ashbyhq.com'
+    notes: "AI agent management platform."
     enabled: true
 
   - name: Cognigy
     careers_url: https://careers.cognigy.com
     scan_method: websearch
-    scan_query: 'site:cognigy.com/careers OR "cognigy" "Product Marketing" OR "PMM" remote OR "relocation"'
-    notes: "Dusseldorf. Enterprise conversational AI. EMEA-strong. PMM roles. EU visa route possible. [T8: remote or relocation only]"
+    scan_query: '"cognigy" careers "AI" OR "Solutions" OR "Engineer"'
+    notes: "Dusseldorf EMEA. Conversational AI enterprise."
     enabled: true
 
   - name: Speechmatics
     careers_url: https://job-boards.greenhouse.io/speechmatics
     api: https://boards-api.greenhouse.io/v1/boards/speechmatics/jobs
-    notes: "Cambridge UK. Speech recognition API. PMM for developer + enterprise. UK visa route possible. [T8: remote or relocation only]"
+    notes: "Cambridge UK. Speech recognition platform."
     enabled: true
 
-  # -- Automation Platforms --
+  # -- No-Code/Low-Code & Automation --
 
   - name: n8n
     careers_url: https://jobs.ashbyhq.com/n8n
     scan_method: websearch
-    scan_query: 'site:jobs.ashbyhq.com/n8n "Marketing" OR "PMM" OR "developer marketing"'
-    notes: "Berlin + remote EU/US. Workflow automation (open-source). Developer marketing + PMM. Remote-friendly. [T8: remote or relocation only]"
+    scan_query: 'site:jobs.ashbyhq.com/n8n'
+    notes: "Berlin + remote EU/US. Workflow automation."
     enabled: true
 
   - name: Zapier
     careers_url: https://jobs.ashbyhq.com/zapier
     scan_method: websearch
-    scan_query: 'site:jobs.ashbyhq.com/zapier "Product Marketing" OR "PMM"'
-    notes: "Fully remote. Automation platform leader. Strong PMM team. Truly async-remote culture. [T8: remote — confirmed remote-first]"
+    scan_query: 'site:jobs.ashbyhq.com/zapier'
+    notes: "Remote-first. Automation platform leader."
     enabled: true
 
-  - name: Make.com
+  - name: Make.com (Celonis)
     careers_url: https://www.make.com/en/careers
     scan_method: websearch
-    scan_query: 'site:make.com/en/careers "Product Marketing" OR "PMM" OR "Marketing Manager" remote OR "relocation"'
-    notes: "Prague / remote. Visual automation platform. PMM + growth roles. EU relocation / remote possible. [T8: remote or relocation only]"
+    scan_query: 'site:make.com/en/careers OR "make.com" "engineer" OR "solutions" site:jobs.ashbyhq.com'
+    notes: "Celonis parent company. Automation platform."
     enabled: true
 
-  # -- European Tech --
+  - name: Boomi
+    careers_url: https://job-boards.greenhouse.io/boomilp
+    api: https://boards-api.greenhouse.io/v1/boards/boomilp/jobs
+    notes: "Integration and automation platform."
+    enabled: true
+
+  # -- Ashby-based (Playwright direct) --
+
+  - name: Cohere
+    careers_url: https://jobs.ashbyhq.com/cohere
+    notes: "AI/LLM provider. Toronto + remote."
+    enabled: true
+
+  - name: LangChain
+    careers_url: https://jobs.ashbyhq.com/langchain
+    notes: "LangChain/LangSmith framework."
+    enabled: true
+
+  - name: Pinecone
+    careers_url: https://jobs.ashbyhq.com/pinecone
+    notes: "Vector database."
+    enabled: true
+
+  # -- Lever-based (Playwright direct) --
+
+  - name: Mistral AI
+    careers_url: https://jobs.lever.co/mistral
+    notes: "Paris. European AI lab."
+    enabled: true
+
+  - name: Palantir
+    careers_url: https://jobs.lever.co/palantir
+    notes: "FDE roles. Mostly US/London."
+    enabled: true
+
+  # -- Canada / Vancouver tech & AI --
+
+  - name: Later
+    careers_url: https://job-boards.greenhouse.io/later
+    api: https://boards-api.greenhouse.io/v1/boards/later/jobs
+    notes: "Vancouver/Toronto. Social media and creator platform."
+    enabled: true
+
+  - name: Safari AI
+    careers_url: https://job-boards.greenhouse.io/safariai
+    api: https://boards-api.greenhouse.io/v1/boards/safariai/jobs
+    notes: "Miami HQ / Vancouver engineering. Computer vision AI for operations in the physical economy."
+    enabled: true
+
+  - name: Hootsuite
+    careers_url: https://job-boards.greenhouse.io/hootsuite
+    api: https://boards-api.greenhouse.io/v1/boards/hootsuite/jobs
+    notes: "Vancouver. Social media management platform."
+    enabled: true
+
+  - name: Klue
+    careers_url: https://jobs.ashbyhq.com/klue
+    notes: "Vancouver. Competitive intelligence SaaS."
+    enabled: true
+
+  - name: Glacis AI
+    careers_url: https://jobs.ashbyhq.com/glacis-ai
+    notes: "Ho Chi Minh City. AI agents for supply chain and logistics workflows."
+    enabled: true
+
+  - name: Sanctuary AI
+    careers_url: https://jobs.lever.co/sanctuary
+    notes: "Vancouver. Humanoid robotics and embodied AI."
+    enabled: true
+
+  - name: Semios
+    careers_url: https://apply.workable.com/semios/
+    scan_method: websearch
+    scan_query: 'site:apply.workable.com/semios'
+    notes: "Vancouver. Agtech and crop intelligence platform."
+    enabled: true
+
+  # -- European tech (EMEA-friendly) --
 
   - name: Factorial
     careers_url: https://job-boards.greenhouse.io/factorial
-    api: https://boards-api.greenhouse.io/v1/boards/factorial/jobs
-    notes: "Barcelona. HR SaaS unicorn. PMM for SMB + enterprise. EU relocation / Spain visa route possible. [T8: remote or relocation only]"
+    scan_method: websearch
+    scan_query: 'site:jobs.greenhouse.io/factorial'
+    notes: "Barcelona. HR SaaS unicorn."
     enabled: true
 
   - name: Attio
     careers_url: https://jobs.ashbyhq.com/attio
     scan_method: websearch
-    scan_query: 'site:attio.com/careers OR site:jobs.ashbyhq.com/attio "Marketing" OR "PMM"'
-    notes: "Remote EU. AI-native CRM. Series B $52M. PMM for developer + enterprise. Remote-EU friendly. [T8: remote or relocation only]"
+    scan_query: 'site:attio.com/careers OR site:jobs.ashbyhq.com/attio'
+    notes: "Remote EU. AI-native CRM. Series B $52M."
     enabled: true
 
   - name: Tinybird
     careers_url: https://jobs.ashbyhq.com/tinybird
     scan_method: websearch
-    scan_query: 'site:tinybird.co/careers OR site:jobs.ashbyhq.com/tinybird "Marketing" OR "PMM"'
-    notes: "Remote. Real-time data platform for developers. Developer marketing. Fully remote. [T8: remote or relocation only]"
+    scan_query: 'site:tinybird.co/careers OR site:jobs.ashbyhq.com/tinybird'
+    notes: "Remote. Real-time data platform."
     enabled: true
 
   - name: Clarity AI
     careers_url: https://jobs.lever.co/clarity-ai
     scan_method: websearch
-    scan_query: 'site:clarity.ai/careers OR site:jobs.lever.co/clarity-ai "Product Marketing" OR "PMM"'
-    notes: "Madrid / remote. Sustainability analytics with AI. PMM for ESG/enterprise. [T8: remote or relocation only]"
+    scan_query: 'site:clarity.ai/careers OR site:jobs.lever.co/clarity-ai'
+    notes: "Madrid/Remote. Sustainability analytics with AI."
     enabled: true
 
-  - name: TravelPerk
+  - name: Travelperk
     careers_url: https://jobs.ashbyhq.com/travelperk
     scan_method: websearch
-    scan_query: 'site:jobs.ashbyhq.com/travelperk "Product Marketing" OR "PMM" OR "Marketing Manager"'
-    notes: "Barcelona. Business travel unicorn. PMM for B2B/enterprise. Spain visa route possible. [T8: remote or relocation only]"
+    scan_query: 'site:jobs.ashbyhq.com/travelperk'
+    notes: "Barcelona. Business travel unicorn."
+    enabled: true
+
+  # -- DACH & European AI ecosystem --
+  # All entries below have been verified against the Greenhouse / Ashby /
+  # Lever / Workable APIs or live job boards. Greenhouse boards expose a
+  # JSON API at https://boards-api.greenhouse.io/v1/boards/{slug}/jobs which
+  # the scanner can hit directly via the api: field.
+
+  # -- DACH AI labs & frontier model providers --
+
+  - name: Aleph Alpha
+    careers_url: https://jobs.ashbyhq.com/AlephAlpha
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/AlephAlpha'
+    notes: "Heidelberg DE. Sovereign European LLM provider, enterprise & government focus."
+    enabled: true
+
+  - name: DeepL
+    careers_url: https://jobs.ashbyhq.com/DeepL
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/DeepL'
+    notes: "Cologne DE. Translation & language AI. 60+ open roles, EU/DACH heavy."
+    enabled: true
+
+  - name: Black Forest Labs
+    careers_url: https://job-boards.greenhouse.io/blackforestlabs
+    api: https://boards-api.greenhouse.io/v1/boards/blackforestlabs/jobs
+    notes: "Freiburg DE / SF. FLUX image models, ex-Stable Diffusion team."
+    enabled: true
+
+  - name: Helsing
+    careers_url: https://job-boards.greenhouse.io/helsing
+    api: https://boards-api.greenhouse.io/v1/boards/helsing/jobs
+    notes: "Munich / Berlin / London / Paris. Defence AI unicorn. 100+ roles, ML & FDE."
+    enabled: true
+
+  # -- DACH enterprise & SaaS (AI-heavy) --
+
+  - name: Celonis
+    careers_url: https://job-boards.greenhouse.io/celonis
+    api: https://boards-api.greenhouse.io/v1/boards/celonis/jobs
+    notes: "Munich / NYC. Process intelligence, Applied AI Engineer roles, Field CTOs."
+    enabled: true
+
+  - name: Contentful
+    careers_url: https://job-boards.greenhouse.io/contentful
+    api: https://boards-api.greenhouse.io/v1/boards/contentful/jobs
+    notes: "Berlin / Denver. Headless CMS, AI content workflows."
+    enabled: true
+
+  - name: GetYourGuide
+    careers_url: https://job-boards.greenhouse.io/getyourguide
+    api: https://boards-api.greenhouse.io/v1/boards/getyourguide/jobs
+    notes: "Berlin. Travel marketplace, ML & data platform roles."
+    enabled: true
+
+  - name: HelloFresh
+    careers_url: https://job-boards.greenhouse.io/hellofresh
+    api: https://boards-api.greenhouse.io/v1/boards/hellofresh/jobs
+    notes: "Berlin. Meal kit unicorn, large data/ML org."
+    enabled: true
+
+  # -- DACH fintech --
+
+  - name: N26
+    careers_url: https://job-boards.greenhouse.io/n26
+    api: https://boards-api.greenhouse.io/v1/boards/n26/jobs
+    notes: "Berlin / Barcelona. Mobile bank, ~50 roles, ML & risk."
+    enabled: true
+
+  - name: Trade Republic
+    careers_url: https://job-boards.greenhouse.io/traderepublicbank
+    api: https://boards-api.greenhouse.io/v1/boards/traderepublicbank/jobs
+    notes: "Berlin / London / Paris. Neobroker, ~50 roles, platform & data."
+    enabled: true
+
+  - name: SumUp
+    careers_url: https://job-boards.greenhouse.io/sumup
+    api: https://boards-api.greenhouse.io/v1/boards/sumup/jobs
+    notes: "Berlin / London. Payments fintech, EU + LATAM hiring."
+    enabled: true
+
+  - name: Qonto
+    careers_url: https://jobs.lever.co/qonto
+    notes: "Paris / Berlin / Barcelona / Milan. SMB neobank, MLOps for AI Product roles."
+    enabled: true
+
+  # -- DACH logistics / mobility --
+
+  - name: Forto
+    careers_url: https://jobs.lever.co/forto
+    notes: "Berlin DE. Digital freight forwarder, product & data roles, German + English."
+    enabled: true
+
+  # -- Switzerland / Austria AI --
+
+  - name: Lakera
+    careers_url: https://jobs.ashbyhq.com/lakera.ai
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/lakera.ai'
+    notes: "Zurich CH / SF. AI security & guardrails. Has Forward Deployed Engineer roles."
+    enabled: true
+
+  - name: Scandit
+    careers_url: https://job-boards.greenhouse.io/scandit
+    api: https://boards-api.greenhouse.io/v1/boards/scandit/jobs
+    notes: "Zurich CH. Computer vision / smart data capture, ML roles."
+    enabled: true
+
+  - name: Cradle
+    careers_url: https://jobs.ashbyhq.com/cradlebio
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/cradlebio'
+    notes: "Zurich CH / Amsterdam. AI-guided protein design, ML researcher roles."
+    enabled: true
+
+  # -- France AI ecosystem --
+
+  - name: Hugging Face
+    careers_url: https://apply.workable.com/huggingface/
+    scan_method: websearch
+    scan_query: 'site:apply.workable.com/huggingface'
+    notes: "Paris / NYC / Remote. ML hub & open-source models."
+    enabled: true
+
+  - name: Photoroom
+    careers_url: https://jobs.ashbyhq.com/photoroom
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/photoroom'
+    notes: "Paris FR. AI photo editor, Head of CV / Head of ML roles."
+    enabled: true
+
+  - name: Pigment
+    careers_url: https://jobs.lever.co/pigment
+    notes: "Paris FR / NYC / London. AI-powered FP&A planning platform."
+    enabled: true
+
+  # -- UK & Ireland AI (EU-friendly hiring) --
+
+  - name: Wayve
+    careers_url: https://job-boards.greenhouse.io/wayve
+    api: https://boards-api.greenhouse.io/v1/boards/wayve/jobs
+    notes: "London UK. Embodied AI for self-driving, ML & robotics roles."
+    enabled: true
+
+  - name: Isomorphic Labs
+    careers_url: https://job-boards.greenhouse.io/isomorphiclabs
+    api: https://boards-api.greenhouse.io/v1/boards/isomorphiclabs/jobs
+    notes: "London / Lausanne / Cambridge MA. DeepMind spin-out for drug discovery AI."
+    enabled: true
+
+  - name: PhysicsX
+    careers_url: https://job-boards.greenhouse.io/physicsx
+    api: https://boards-api.greenhouse.io/v1/boards/physicsx/jobs
+    notes: "London UK. Physics-informed ML for engineering, ~40 roles."
+    enabled: true
+
+  - name: Stability AI
+    careers_url: https://job-boards.greenhouse.io/stabilityai
+    api: https://boards-api.greenhouse.io/v1/boards/stabilityai/jobs
+    notes: "London / SF. Generative AI image/video research lab."
+    enabled: true
+
+  - name: Synthesia
+    careers_url: https://jobs.ashbyhq.com/synthesia
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/synthesia OR site:job-boards.greenhouse.io/synthesia'
+    notes: "London UK. AI video generation for enterprise, $4B valuation."
+    enabled: true
+
+  - name: Faculty
+    careers_url: https://jobs.ashbyhq.com/faculty
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/faculty'
+    notes: "London UK. Applied AI consultancy. 80+ roles, AI Safety / MLE / Delivery."
+    enabled: true
+
+  - name: Causaly
+    careers_url: https://jobs.ashbyhq.com/causaly
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/causaly'
+    notes: "London / Athens. Biomedical knowledge graph + AI."
+    enabled: true
+
+  # -- Nordics AI --
+
+  - name: Lovable
+    careers_url: https://jobs.ashbyhq.com/lovable
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/lovable'
+    notes: "Stockholm SE. AI app builder (text-to-app), 80+ open roles."
+    enabled: true
+
+  - name: Legora
+    careers_url: https://jobs.ashbyhq.com/legora
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/legora'
+    notes: "Stockholm SE / NYC / London. AI-native legal workspace."
+    enabled: true
+
+  - name: Spotify
+    careers_url: https://jobs.lever.co/spotify
+    notes: "Stockholm SE / NYC / London. Audio platform, large ML/personalization org."
+    enabled: true
+
+  - name: Vinted
+    careers_url: https://jobs.lever.co/vinted
+    notes: "Vilnius LT / Berlin. C2C marketplace unicorn, data science & ML roles."
+    enabled: true
+
+  # -- Iberia AI --
+
+  - name: Amplemarket
+    careers_url: https://job-boards.greenhouse.io/amplemarket
+    api: https://boards-api.greenhouse.io/v1/boards/amplemarket/jobs
+    notes: "Lisbon PT / Remote. AI-native sales platform."
+    enabled: true
+
+  # -- AI / Developer Tools --
+
+  - name: Perplexity
+    careers_url: https://jobs.ashbyhq.com/perplexity
+    scan_method: websearch
+    scan_query: ‘site:jobs.ashbyhq.com/perplexity "AI" OR "Applied AI" OR "Forward Deployed" OR "Engineer"’
+    notes: "AI-native search and enterprise AI platform."
+    enabled: true
+
+  - name: Clay Labs
+    careers_url: https://jobs.ashbyhq.com/claylabs
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/claylabs "AI" OR "Developer Experience" OR "Growth" OR "Engineer"'
+    notes: "AI-native GTM and workflow automation platform."
+    enabled: true
+
+  - name: Runway
+    careers_url: https://job-boards.greenhouse.io/runwayml
+    api: https://boards-api.greenhouse.io/v1/boards/runwayml/jobs
+    notes: "Generative AI video and creative tooling platform."
+    enabled: true
+
+  - name: Hightouch
+    careers_url: https://job-boards.greenhouse.io/hightouch
+    api: https://boards-api.greenhouse.io/v1/boards/hightouch/jobs
+    notes: "Data activation platform with AI agents and solutions engineering roles."
+    enabled: true
+
+  - name: WorkOS
+    careers_url: https://jobs.ashbyhq.com/workos
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/workos "Solutions Engineer" OR "Developer Success" OR "Engineer"'
+    notes: "Developer tools and enterprise-ready auth/platform APIs."
+    enabled: true
+
+  # -- Dev Tools / AI Infra (DevRel, SA, FDE focus) --
+
+  - name: Supabase
+    careers_url: https://jobs.ashbyhq.com/supabase
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/supabase'
+    notes: "Open-source Firebase alternative. Remote-first. Postgres + Auth + Storage. Strong DevRel/DX hiring."
+    enabled: true
+
+  - name: Resend
+    careers_url: https://jobs.ashbyhq.com/resend
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/resend'
+    notes: "Email API for developers. Remote-first. DX/DevRel focused."
+    enabled: true
+
+  - name: Clerk
+    careers_url: https://jobs.ashbyhq.com/clerk
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/clerk'
+    notes: "Auth & user management for developers. SE / TAM / PM roles."
+    enabled: true
+
+  - name: Inngest
+    careers_url: https://jobs.ashbyhq.com/inngest
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/inngest'
+    notes: "Durable workflow engine for serverless. DX/DevRel/Engineering hiring."
+    enabled: true
+
+  - name: PlanetScale
+    careers_url: https://job-boards.greenhouse.io/planetscale
+    api: https://boards-api.greenhouse.io/v1/boards/planetscale/jobs
+    notes: "Serverless MySQL platform. Customer Engineering, Engineering, Sales."
+    enabled: true
+
+  - name: Zep AI
+    careers_url: https://www.getzep.com/careers
+    scan_method: websearch
+    scan_query: '"Zep" "Forward Deployed" OR "Developer Relations" OR "Founding" site:workatastartup.com OR site:getzep.com'
+    notes: "Context engineering platform for AI agents. YC W24. Lead FDE + DevRel Lead roles. US-only currently."
+    enabled: true
+
+  - name: Maxim AI
+    careers_url: https://www.getmaxim.ai/careers
+    scan_method: websearch
+    scan_query: '"Maxim AI" OR "getmaxim" careers "engineer" OR "product"'
+    notes: "AI evaluation and observability platform. Bangalore-based, mostly on-site."
     enabled: true
