@@ -1,0 +1,466 @@
+# Pipeline — Pending Evaluations
+
+<!-- Add URLs here for batch evaluation. Format: - [ ] {url} | {company} | {title} -->
+<!-- Run /career-ops pipeline to process all pending items. -->
+
+## ✅ VIABLE — PMM Roles (Remote-friendly / India-accessible)
+
+<!-- Evaluate these next. Confirmed remote-first or globally remote companies. -->
+
+- [ ] https://jobs.ashbyhq.com/supabase/82665e7b-1dac-401d-ac0b-42e3f2485421 | Supabase | Product Marketing Manager
+- [ ] https://jobs.ashbyhq.com/cohere/527c455c-4cdd-4a3a-b537-61ca36dbf7a9 | Cohere | Solutions Marketing Manager
+- [ ] https://jobs.ashbyhq.com/cohere/f54c0ca3-9fe3-4df7-b7dd-bf432c0425cb | Cohere | Partner Marketing Manager
+- [ ] https://jobs.ashbyhq.com/cohere/5cf3bd63-cf1d-441a-9db5-2032ca8449b8 | Cohere | Product Marketing Manager
+- [ ] https://jobs.ashbyhq.com/cohere/a401b374-0636-405e-b0d1-a1e9f57ad616 | Cohere | Head of Brand Marketing
+- [ ] https://jobs.ashbyhq.com/legora/aae1d02d-47f3-47ab-aad0-d9cc5c93f9dc | Legora | Senior Product Marketing Manager, Partnerships
+- [ ] https://jobs.ashbyhq.com/legora/f7390a70-a7d0-41c8-849b-f5dcb6a7fcbd | Legora | Director, Product Marketing
+- [ ] https://jobs.ashbyhq.com/legora/d82c5e8d-ce7f-4f68-92a9-aea167facfe8 | Legora | Senior Product Marketing Manager, Partnerships
+- [ ] https://jobs.lever.co/pigment/02224c31-9528-460b-b491-8cce972dfe57 | Pigment | Product Marketing Manager
+- [ ] https://jobs.lever.co/pigment/150fdf8f-a235-4404-b9b4-289f15096b1a | Pigment | Product Marketing Manager
+- [ ] https://jobs.lever.co/pigment/dfef7ea9-a325-4262-b9ca-bc925d1534ec | Pigment | Product Marketing Manager
+- [ ] https://jobs.ashbyhq.com/claylabs/a6e7ee84-c7b5-4a4a-b90b-0a39f1968149 | Clay Labs | Product Marketing
+- [ ] https://jobs.ashbyhq.com/claylabs/6579de6f-b5df-46df-bb73-e8d82955f293 | Clay Labs | Product Marketing (GTM)
+- [ ] https://jobs.ashbyhq.com/claylabs/0143978b-cc76-48ec-85c5-10eeef612095 | Clay Labs | Product Marketing, Orchestration Products
+- [ ] https://jobs.ashbyhq.com/claylabs/81067fe9-fd11-41bf-aeb6-219ba933a614 | Clay Labs | Product Marketing, New Verticals
+- [ ] https://jobs.ashbyhq.com/claylabs/36433562-94e5-4444-a5e2-13acf5da5213 | Clay Labs | Product Marketing, Personas (Clay for Marketing)
+- [ ] https://jobs.ashbyhq.com/Resolve%20AI/f9cca54e-99fb-4108-a5fb-0f05bdefb810 | Resolve AI | Product Marketing Manager
+- [ ] https://jobs.ashbyhq.com/character/5ae538da-6b75-4b10-9c3e-a2a500b63575 | Character.AI | Product Marketing Manager
+- [ ] https://helsing.ai/jobs/4468911101?gh_jid=4468911101 | Helsing | (Senior) Product Marketing Manager
+- [ ] https://job-boards.greenhouse.io/arizeai/jobs/5990037004 | Arize AI | Technical Product Marketing Manager, Developer Growth
+- [ ] https://jobs.ashbyhq.com/n8n/8b2ece44-e693-4e55-b21e-34848f1aad0a | n8n | Product Marketing Manager (Enterprise)
+- [ ] https://job-boards.greenhouse.io/postman/jobs/7713692003 | Postman | Principal Product Marketing Manager
+- [ ] https://job-boards.greenhouse.io/postman/jobs/7713712003 | Postman | Principal Product Marketing Manager, EMEA
+- [ ] https://job-boards.greenhouse.io/postman/jobs/7729921003 | Postman | Senior Product Marketing Manager
+- [ ] https://job-boards.greenhouse.io/hightouch/jobs/5799725004 | Hightouch | Product Marketing Manager, AdTech
+- [ ] https://jobs.lever.co/mistral/281f4a57-dbe2-40b5-a35f-e180e15a4f12 | Mistral AI | Senior Product Marketing Manager, B2B
+- [ ] https://jobs.ashbyhq.com/DeepL/d76e8fbf-19f4-495b-9e2a-55b7a7ef3fa6 | DeepL | Product GTM Specialist - DeepL Voice
+- [ ] https://jobs.ashbyhq.com/runway-ml/602482ff-7bf3-4001-a7dc-f3887906aeb8 | Runway | B2B Marketing Director
+- [ ] https://jobs.ashbyhq.com/zapier/283b909d-c5b0-4d78-844c-7b25a7d5faf7 | Zapier | Demand Generation Manager
+- [ ] https://jobs.lever.co/spotify/f3919cc9-83f3-43b5-84ab-7fc55004bce5 | Spotify | Product Marketing Manager, Measurement
+- [ ] https://careers.hellofresh.com/global/en/job/7906733?gh_jid=7906733 | HelloFresh | Senior Product Marketing Manager (all genders)
+- [ ] https://jobs.ashbyhq.com/decagon/41f9ff8f-2d69-455f-ba6c-ac304cfec0e6 | Decagon | Customer Marketing Manager
+- [ ] https://jobs.ashbyhq.com/decagon/1b082f84-4731-40b1-bcc3-dc3081652c0f | Decagon | Field Marketing Manager
+- [ ] https://jobs.ashbyhq.com/decagon/9e825fb8-33b6-483d-b114-3cf70ec90df6 | Decagon | Growth Marketing Manager
+- [ ] https://job-boards.greenhouse.io/intercom/jobs/7846251 | Intercom | Senior Product Marketing Manager
+- [ ] https://jobs.ashbyhq.com/kognitos/79627f7b-fe95-4fc6-ae04-39e9e878a712 | Kognitos | Product Marketing Manager, Content & GTM
+- [ ] https://jobs.lever.co/wandb/a98b119b-cb54-41a3-b54f-f6724693d74f | Weights & Biases | Product Marketing Lead
+- [ ] https://jobs.lever.co/wandb/6e8cde5c-61ad-47d9-bb50-432ddc393438 | Weights & Biases | Product Marketing Manager
+- [ ] https://job-boards.eu.greenhouse.io/amplemarket/jobs/4086813101 | Amplemarket | Growth & Marketing Lead
+- [ ] https://jobs.ashbyhq.com/bland/e1dcf90a-6bb9-4d09-8592-f06b40fca002 | Bland AI | Content Marketing Lead
+- [ ] https://jobs.lever.co/GoToGroup/b3dfc769-8bde-4c44-bc1f-8fb04b7b263d | GoTo Group | Head of GTM Strategy & Sales Excellence
+- [ ] https://jobs.ashbyhq.com/deliveroo/2b71bd02-6d80-467e-8b32-f2d6652f6571 | Deliveroo MENA | Marketing Manager, HOP and Retail
+- [ ] https://jobs.ashbyhq.com/deliveroo/75a583b2-c459-4816-9eb8-54b1f48d6854 | Deliveroo MENA | Marketing Manager, Grocery
+- [ ] https://getyourguide.careers/jobs/7668008?gh_jid=7668008 | GetYourGuide | Senior Go-to-Market Manager, New Categories
+- [ ] https://jobs.ashbyhq.com/photoroom/321aa19e-bd58-4ac2-bd65-da23aea6299b | Photoroom | Senior Growth Marketing
+- [ ] https://jobs.ashbyhq.com/elevenlabs/575f2f4f-e836-441c-82f5-b477f52123c0 | ElevenLabs | B2B Marketing - Middle East
+- [ ] https://sumup.com/careers/positions/8520292002?gh_jid=8520292002 | SumUp | Sales Enablement Content Specialist
+- [ ] https://jobs.ashbyhq.com/perk/9abd3f4f-0cef-4d4d-b602-9fc393cc4fe7 | Travelperk | Senior Customer Marketing Manager
+- [ ] https://jobs.lever.co/mistral/a97587a9-f7e5-40ee-8294-fd151b072c28 | Mistral AI | Demand Generation Lead
+- [ ] https://jobs.ashbyhq.com/cohere/a0193996-c527-42e0-af1e-79ed6ec64236 | Cohere | Customer Marketing Manager
+- [ ] https://jobs.ashbyhq.com/langchain/e82ce858-bbaf-4444-885f-cfe357ed4292 | LangChain | Customer Marketing Manager
+- [ ] https://jobs.ashbyhq.com/n8n/8be435cf-ccd8-4a79-b43a-2bb1418a73bc | n8n | Customer Marketing Manager
+- [ ] https://jobs.ashbyhq.com/legora/c045f902-44b0-4005-8e2f-bd9442b2963b | Legora | Marketing Manager, Campaigns
+- [ ] https://jobs.ashbyhq.com/legora/8655482a-b3c8-4e1a-9736-1b288b08acb5 | Legora | Marketing Manager, Campaigns
+- [ ] https://coreweave.com/careers/job?4654116006&board=coreweave&gh_jid=4654116006 | CoreWeave | Senior Product Marketing Manager, SUNK
+- [ ] https://coreweave.com/careers/job?4643503006&board=coreweave&gh_jid=4643503006 | CoreWeave | Head of Market Intelligence
+
+---
+
+## 🚫 SKIP — Location Blocker (on-site required outside India / US-only remote)
+
+- [x] SKIP | https://jobs.ashbyhq.com/openai/73ab2f48-9da1-417b-802a-f029bbaa5119 | OpenAI | Product Marketing Manager, Platform | SF on-site
+- [x] SKIP | https://jobs.ashbyhq.com/openai/f630d886-76d4-4492-a06b-7c6a34d05b8f | OpenAI | ChatGPT Research PMM | SF on-site
+- [x] SKIP | https://jobs.ashbyhq.com/openai/ca28937d-ce0b-4c36-9fcb-6bbbf1c31980 | OpenAI | PMM Codex | SF on-site
+- [x] SKIP | https://jobs.ashbyhq.com/openai/f1a78938-7731-43a6-9a8b-13ce00e83e1b | OpenAI | PMM ChatGPT for Work | SF on-site
+- [x] SKIP | https://jobs.ashbyhq.com/openai/66b2f70e-6dd6-479c-a8ec-808cc92d89ab | OpenAI | PMM SMB | SF on-site
+- [x] SKIP | https://jobs.ashbyhq.com/openai/31786f05-479d-415c-ad72-4e0dcf8a5b0a | OpenAI | PMM ChatGPT Business | SF on-site
+- [x] SKIP | https://jobs.ashbyhq.com/openai/9696cdce-d6ce-4793-b644-6ed967510940 | OpenAI | PMM ChatGPT Consumer | SF on-site
+- [x] SKIP | https://jobs.ashbyhq.com/retell-ai/12c345f7-be0d-44bb-b78c-47c98c94bc86 | Retell AI | Senior PMM | SF on-site
+- [x] SKIP | https://jobs.ashbyhq.com/kong/9b84ad3e-1a9f-4413-8167-91845409192f | Kong | Senior Technical PMM, AI | US on-site
+- [x] SKIP | https://jobs.ashbyhq.com/kong/a0f0b832-1b33-4726-abb7-42a498ca07a1 | Kong | Senior PMM, API & Event Mgmt | US on-site
+- [x] SKIP | https://jobs.ashbyhq.com/mercor/0445e06e-7992-46b1-a734-95a026f489b3 | Mercor | PMM Enterprise AI | SF on-site
+- [x] SKIP | https://jobs.ashbyhq.com/mercor/5fc578f1-36d2-4a81-9f23-f97ba4a860a6 | Mercor | PMM | SF on-site
+- [x] SKIP | https://jobs.ashbyhq.com/modal/e784797b-2578-4668-b1f6-1a1b57d1f589 | Modal | Product Marketing Manager | US on-site
+- [x] SKIP | https://jobs.ashbyhq.com/tigerdata/e2c15408-04d1-48c2-a046-75a632d38985 | TigerData | Head of PMM | SF on-site
+- [x] SKIP | https://jobs.ashbyhq.com/tigerdata/b6d3679f-c821-45ee-9c2c-9307a0eba782 | TigerData | Senior PMM | SF on-site
+- [x] SKIP | https://jobs.ashbyhq.com/tigerdata/3d4f0ada-800a-4304-bbc3-a66762d52ece | TigerData | Senior/Staff PMM Time Series | SF on-site
+- [x] SKIP | https://jobs.ashbyhq.com/Superhuman%20Platform%20Inc/d29616c7-8e4b-46d6-97bc-ee83cf80ccb0 | Superhuman | Senior PMM Platform | SF on-site
+- [x] SKIP | https://job-boards.greenhouse.io/arizeai/jobs/5844314004 | Arize AI | Customer Marketing Manager | SF on-site
+- [x] SKIP | https://jobs.ashbyhq.com/elevenlabs/f3d912e2-eecd-4525-8973-13ec71654e6e | ElevenLabs | B2B Marketing ANZ | Australia/NZ region
+- [x] SKIP | https://jobs.ashbyhq.com/elevenlabs/4bafa4ea-5271-43af-903e-2dfca0123753 | ElevenLabs | B2B Marketing UK/I | UK/Ireland region
+- [x] SKIP | https://jobs.ashbyhq.com/elevenlabs/89f01b9a-be26-4fe4-8a06-e5a65b85fcdc | ElevenLabs | B2B Marketing North America Generalist | NA region
+- [x] SKIP | https://jobs.ashbyhq.com/elevenlabs/aec0a22c-243c-4f5a-a90a-51eb12c91f71 | ElevenLabs | B2B Marketing Mandarin Growth Lead | APAC/China region
+- [x] SKIP | https://jobs.ashbyhq.com/elevenlabs/1e9fc21e-e452-454f-b415-40eee9172d81 | ElevenLabs | B2B Marketing Spanish Latam | LatAm region
+- [x] SKIP | https://jobs.ashbyhq.com/elevenlabs/bb78970b-43e4-477d-8d17-4a377a26847a | ElevenLabs | B2B Marketing France | France region
+- [x] SKIP | https://jobs.ashbyhq.com/n8n/a259b31d-3df5-4bc0-9feb-865e85016fba | n8n | GTM German-speaking Talent Pool | Germany required
+- [x] SKIP | https://jobs.ashbyhq.com/n8n/47aa16e3-fb99-466c-b5d9-96f5ca1326f7 | n8n | Field Marketing Manager | EU on-site
+- [x] SKIP | https://job-boards.eu.greenhouse.io/parloa/jobs/4828266101 | Parloa | Content Marketing Manager | EU on-site
+- [x] SKIP | https://job-boards.eu.greenhouse.io/parloa/jobs/4757228101 | Parloa | Lead Customer Marketing Manager US | US on-site
+- [x] SKIP | https://job-boards.eu.greenhouse.io/parloa/jobs/4729591101 | Parloa | Senior Field Marketing Manager | EU on-site
+- [x] SKIP | https://job-boards.eu.greenhouse.io/parloa/jobs/4837297101 | Parloa | Senior Partner Marketing Manager EMEA | EU on-site
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4668783005 | Glean | Field Marketing Manager ANZ | Australia/NZ
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4670205005 | Glean | Senior Field Marketing Manager Canada & LATAM | Canada/LatAm
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5169167008 | Anthropic | Field Marketing Manager | US on-site
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5191833008 | Anthropic | Field Marketing Manager Startups | US on-site
+- [x] SKIP | https://jobs.ashbyhq.com/synthesia/c173d801-503b-433b-98de-d7890d124a9e | Synthesia | Field Marketing Manager DACH | DACH region
+- [x] SKIP | https://jobs.lever.co/qonto/73caa810-8930-42cc-89ad-0b558f31c8a9 | Qonto | Marketing Manager Deutschland | German required
+- [x] SKIP | https://jobs.lever.co/qonto/4da0db79-ae25-4983-bae1-4fb99acb4c26 | Qonto | Senior PMM German Market | German required
+- [x] SKIP | https://jobs.lever.co/spotify/aced8bea-4eef-435b-b32f-734ca776d31e | Spotify | Senior PM Acquisition & Retention | US on-site
+- [x] SKIP | https://jobs.lever.co/spotify/22f3ad1b-0dff-4058-8d1a-e7b02475413e | Spotify | Marketing Manager UK/IE | UK/IE region
+- [x] SKIP | https://jobs.lever.co/spotify/b0b211df-0119-4909-bdee-40e3388ddf1d | Spotify | Social Marketing Manager Mexico | Mexico region
+- [x] SKIP | https://jobs.lever.co/spotify/6305f77d-6a4b-4360-bc64-ef26667ce528 | Spotify | Social Marketing Manager South Korea | Korea region
+- [x] SKIP | https://jobs.lever.co/spotify/62d3b686-3738-48a0-afa3-5e032c8969a2 | Spotify | Experiential Marketing Manager South Korea | Korea region
+- [x] SKIP | https://job-boards.greenhouse.io/postman/jobs/7689329003 | Postman | Field Marketing Manager | US on-site
+- [x] SKIP | https://job-boards.greenhouse.io/postman/jobs/7689299003 | Postman | Field Marketing Manager | US on-site
+- [x] SKIP | https://job-boards.greenhouse.io/postman/jobs/7689262003 | Postman | Field Marketing Manager | US on-site
+- [x] SKIP | https://job-boards.greenhouse.io/airtable/jobs/8485360002 | Airtable | Regional Marketing Manager | SF on-site
+- [x] SKIP | https://job-boards.greenhouse.io/vercel/jobs/5815467004 | Vercel | Field Marketing Manager Startups | US on-site
+- [x] SKIP | https://jobs.ashbyhq.com/vapi/d4654efb-04d8-4465-919a-7a6a9277bd66 | Vapi | Senior Marketing Manager EMEA | EMEA region
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/454725ed-81e8-4252-992d-e16ee48621b9 | Clay Labs | GTM Enablement Program Manager EMEA | EMEA region
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/2620226a-13b5-48be-a9a9-ff7769552a21 | Clay Labs | GTM Ops Manager EMEA | EMEA region
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/38f06024-4ee9-47d6-a36f-f2791ac1e412 | Sierra | Marketing Manager Events | US on-site
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/98c89e11-17f2-42a6-8ea3-2bd4dd10d313 | Sierra | Marketing Manager Events Europe | Europe on-site
+- [x] SKIP | https://jobs.ashbyhq.com/elevenlabs/b3700233-a7b6-4454-ada0-9474630e92be | ElevenLabs | GTM Enablement Outbound | US on-site
+- [x] SKIP | https://jobs.ashbyhq.com/elevenlabs/2f121da5-8c9a-401a-9332-3156c5d33113 | ElevenLabs | GTM Enablement Partnerships Lead | US on-site
+- [x] SKIP | https://jobs.ashbyhq.com/elevenlabs/0f27b962-8ff2-4e1b-b138-769a50391800 | ElevenLabs | GTM Agentic Enablement Lead | US on-site
+- [x] SKIP | https://jobs.ashbyhq.com/elevenlabs/eee2abfb-bd2f-410d-a339-3923e9c95043 | ElevenLabs | GTM Enablement Expansion | US on-site
+
+---
+
+## 🚫 SKIP — Not PMM (PM / Engineering / Sales / Recruiter / Analyst / Legal)
+
+- [x] SKIP | https://job-boards.greenhouse.io/intercom/jobs/7814380 | Intercom | Principal Engineer GTM | Engineering
+- [x] SKIP | https://job-boards.greenhouse.io/intercom/jobs/5663703 | Intercom | Product Manager | PM not PMM
+- [x] SKIP | https://job-boards.greenhouse.io/intercom/jobs/7851785 | Intercom | Senior GTM Data Analyst | Analyst
+- [x] SKIP | https://job-boards.greenhouse.io/intercom/jobs/7441053 | Intercom | Senior GTM Enablement Manager Operations | Ops
+- [x] SKIP | https://job-boards.greenhouse.io/intercom/jobs/7441074 | Intercom | Senior GTM Product Enablement Manager | Enablement not PMM
+- [x] SKIP | https://job-boards.greenhouse.io/intercom/jobs/7511855 | Intercom | Senior PM Web | PM
+- [x] SKIP | https://job-boards.greenhouse.io/intercom/jobs/6758904 | Intercom | Senior PM Web Narrative | PM
+- [x] SKIP | https://job-boards.greenhouse.io/intercom/jobs/7464291 | Intercom | Staff AI PM | PM
+- [x] SKIP | https://job-boards.greenhouse.io/intercom/jobs/5379326 | Intercom | Staff PM | PM
+- [x] SKIP | https://job-boards.greenhouse.io/intercom/jobs/5663720 | Intercom | Staff PM | PM
+- [x] SKIP | https://job-boards.greenhouse.io/intercom/jobs/7511861 | Intercom | Senior PM Web (dup) | PM
+- [x] SKIP | https://job-boards.greenhouse.io/intercom/jobs/7377200 | Intercom | Staff AI PM (dup) | PM
+- [x] SKIP | https://job-boards.greenhouse.io/intercom/jobs/7371973 | Intercom | Staff PM (dup) | PM
+- [x] SKIP | https://job-boards.greenhouse.io/intercom/jobs/7464294 | Intercom | Staff AI PM (dup) | PM
+- [x] SKIP | https://jobs.ashbyhq.com/vapi/202bbcae-46eb-4dfc-abe2-d416685291b6 | Vapi | GTM Recruiter | Recruiter
+- [x] SKIP | https://jobs.ashbyhq.com/vapi/5a2b92d6-657a-456c-8b1a-074f59a44e90 | Vapi | Director of Demand Generation | Demand Gen not PMM
+- [x] SKIP | https://jobs.ashbyhq.com/vapi/6d2c731b-64be-45cc-87c8-f6330d29b7f4 | Vapi | PM Enterprise & Governance Agents | PM
+- [x] SKIP | https://jobs.ashbyhq.com/deepgram/3faa8232-6c6f-4b97-9b00-033175fa2285 | Deepgram | GTM Enablement Manager | Enablement
+- [x] SKIP | https://jobs.ashbyhq.com/deepgram/b12e1b24-8df5-4900-929f-1d58ef6d4e0e | Deepgram | GTM Engineer | Engineering
+- [x] SKIP | https://job-boards.greenhouse.io/vercel/jobs/5777645004 | Vercel | GTM Engineer | Engineering
+- [x] SKIP | https://job-boards.greenhouse.io/vercel/jobs/5979660004 | Vercel | Pricing Product Manager | PM
+- [x] SKIP | https://job-boards.eu.greenhouse.io/polyai/jobs/4713506101 | PolyAI | Group Product Manager | PM
+- [x] SKIP | https://job-boards.eu.greenhouse.io/polyai/jobs/4828275101 | PolyAI | Senior Manager GTM Systems | Ops/Systems
+- [x] SKIP | https://job-boards.eu.greenhouse.io/polyai/jobs/4874048101 | PolyAI | Partner & GTM Enablement Program Manager | Enablement
+- [x] SKIP | https://jobs.ashbyhq.com/elevenlabs/e988d8ca-08f4-484a-943a-0e5ed5b215ef | ElevenLabs | GTM Recruiter | Recruiter
+- [x] SKIP | https://jobs.ashbyhq.com/elevenlabs/fef4499d-6191-43ad-b4f4-e646544f510d | ElevenLabs | GTM Recruiter (dup) | Recruiter
+- [x] SKIP | https://job-boards.eu.greenhouse.io/parloa/jobs/4843556101 | Parloa | Software Engineer GTM | Engineering
+- [x] SKIP | https://job-boards.greenhouse.io/humeai/jobs/4856037008 | Hume AI | PM Growth | PM
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4659407005 | Glean | Forward Deployed PM | PM
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4653829005 | Glean | GTM Onboarding & Readiness Manager | Enablement
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4674234005 | Glean | GTM Strategic Finance Manager | Finance
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4629292005 | Glean | Product Manager | PM
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4525297005 | Glean | PM Agent Security & Governance | PM
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4525518005 | Glean | PM AI Quality | PM
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4597178005 | Glean | PM Connectors | PM
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4641940005 | Glean | PM Glean Protect | PM
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4651950005 | Glean | Forward Deployed PM (dup) | PM
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4007711005 | Glean | PM (dup) | PM
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4659409005 | Glean | Forward Deployed PM (dup) | PM
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4696681005 | Glean | GTM Strategic Finance Manager (dup) | Finance
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4694761005 | Glean | PM Agent Security (dup) | PM
+- [x] SKIP | https://job-boards.greenhouse.io/gleanwork/jobs/4694764005 | Glean | PM AI Quality (dup) | PM
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5074052008 | Anthropic | Commercial Counsel GTM | Legal
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5202386008 | Anthropic | Finance & Strategy GTM ASEAN | Finance
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5135964008 | Anthropic | Finance & Strategy GTM India | Finance
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5079133008 | Anthropic | Finance & Strategy GTM Korea | Finance
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5194894008 | Anthropic | Finance & Strategy GTM Public Sector | Finance
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5211222008 | Anthropic | GTM Engineer | Engineering
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5139423008 | Anthropic | GTM Strategy & Ops Enterprise BP | Ops
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5121572008 | Anthropic | GTM Strategy & Ops DACH | Ops + DACH region
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5109661008 | Anthropic | Manager Commercial Counsel GTM | Legal
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5181852008 | Anthropic | PM API Growth | PM
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/4985920008 | Anthropic | PM Claude Code | PM
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5127559008 | Anthropic | PM Consumer | PM
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5153773008 | Anthropic | PM Monetization | PM
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5215052008 | Anthropic | Amazon GTM Partnership Startups | BD/Partnerships
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5176442008 | Anthropic | GTM Compensation Partner | HR/Comp
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5227856008 | Anthropic | GTM Strategy & Ops Special Projects | Ops
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5220143008 | Anthropic | PM Developer Productivity | PM
+- [x] SKIP | https://job-boards.greenhouse.io/anthropic/jobs/5153924008 | Anthropic | PM Multi-Cloud Growth Google | PM
+- [x] SKIP | https://jobs.ashbyhq.com/lindy/ff98a7a7-26e8-48dc-8ecd-c9a69c1f390a | Lindy | Growth PM | PM
+- [x] SKIP | https://jobs.ashbyhq.com/decagon/dcf9b561-f2fb-422b-88a9-33ce76e96608 | Decagon | Senior Agent PM | PM
+- [x] SKIP | https://jobs.ashbyhq.com/decagon/d790a2a2-958d-4f49-96ed-adbd68d2e6ce | Decagon | PM | PM
+- [x] SKIP | https://jobs.ashbyhq.com/decagon/0563a376-0881-48c6-92ae-d1ac4ee58765 | Decagon | PM Voice Agent | PM
+- [x] SKIP | https://jobs.ashbyhq.com/decagon/e19bc04b-5f18-4047-b3cf-7cb47a610948 | Decagon | Senior GTM Recruiter | Recruiter
+- [x] SKIP | https://jobs.ashbyhq.com/decagon/6321ea2f-4e21-4c18-8859-b4ef5489b6fe | Decagon | PM Research | PM
+- [x] SKIP | https://jobs.ashbyhq.com/decagon/0e8a35cd-be75-436e-8407-f4e8dd2d2c59 | Decagon | GTM Enablement Manager | Enablement
+- [x] SKIP | https://jobs.ashbyhq.com/decagon/e31c0645-7325-43b9-9d58-0acc40904240 | Decagon | Senior Agent PM (dup) | PM
+- [x] SKIP | https://jobs.ashbyhq.com/decagon/ee6c3e3f-b6ce-4945-a367-172d2b62ccf8 | Decagon | Senior Agent PM (dup) | PM
+- [x] SKIP | https://jobs.ashbyhq.com/decagon/123e4aae-9550-4e69-be08-6789e09db07e | Decagon | Senior Agent PM (dup) | PM
+- [x] SKIP | https://jobs.ashbyhq.com/decagon/4ef4e97e-43b3-420f-be6f-1d0aab181149 | Decagon | Senior Agent PM Germany | PM + German required
+- [x] SKIP | https://jobs.ashbyhq.com/decagon/d53738b5-ca10-4283-be5a-3937aa9e7c59 | Decagon | Senior Agent PM German Speaking | PM + German required
+- [x] SKIP | https://job-boards.eu.greenhouse.io/speechmatics/jobs/4673941101 | Speechmatics | Senior PM | PM
+- [x] SKIP | https://job-boards.eu.greenhouse.io/speechmatics/jobs/4675075101 | Speechmatics | Senior PM (dup) | PM
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/422cb7bb-ab03-447b-808c-6d72f59bbd2f | Sierra | PM Agent Data Platform | PM
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/effd7cd2-8a28-4bae-a3b8-40720ba09717 | Sierra | PM Agent Development | PM
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/fed8ca9a-0bb7-44ef-a541-0be6a8ae7bba | Sierra | PM Agent Development German | PM + German
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/38f06024-4ee9-47d6-a36f-f2791ac1e412 | Sierra | PM Agent Development French | PM + French
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/4892f01e-8871-4b32-8963-527f1cf8db5d | Sierra | PM Agent Development Spanish | PM
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/9dc1651d-43e9-4970-a757-a5223cef1c4d | Sierra | PM Agent Development Arabic | PM
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/edf44ab4-538b-4e65-b93c-392c950b9fe6 | Sierra | PM Agent Development | PM
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/2e07f536-bbaa-4cc0-957a-774ddf99de64 | Sierra | PM Agent Development Italian | PM
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/1c991675-099f-49dd-9b9b-bd3c9111e65c | Sierra | GTM Systems Administrator | Systems/IT
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/10d2e2f1-6657-40c9-b6fb-6999c76df6cf | Sierra | PM Agent SDK | PM
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/21a4df49-1b95-4fe9-b375-af6cf69c0812 | Sierra | GTM Operations Analyst | Analyst
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/85e1d0f9-e0d5-4a82-9b30-fa4372e32872 | Sierra | GTM Operations Analyst Agent Dev | Analyst
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/65eb2c63-c936-4e8e-87e7-ea080dcdca73 | Sierra | PM Agent Development Healthcare | PM
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/0c66e8ed-1c18-4b64-ad27-a522a866b6e1 | Sierra | PM Voice | PM
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/5aaa2eeb-92bc-4b0a-901e-8e091eff819e | Sierra | PM Agent Studio | PM
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/22ba107d-de01-4aa3-98fc-838cccad760c | Sierra | PM Ghostwriter | PM
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/1e052261-0c89-4ccb-abfa-3820a1596a6e | Sierra | PM Infrastructure | PM
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/8023c5e9-5622-4f50-b3ba-0690a60e4cb2 | Sierra | GTM Strategy & Ops | Ops
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/b4b762e6-8ce7-4ea7-b9b3-40c04f62135a | Sierra | PM Agent Development (dup) | PM
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/569ba29b-de35-4bce-a16c-e27cb9b683ea | Sierra | GTM Operations Agent Development | Ops
+- [x] SKIP | https://jobs.ashbyhq.com/sierra/dc443fd1-14bd-493c-9397-c3713c78321c | Sierra | PM Agent Development (dup) | PM
+- [x] SKIP | https://job-boards.greenhouse.io/runpod/jobs/5173080008 | RunPod | Digital Marketing Manager | Not PMM
+- [x] SKIP | https://job-boards.greenhouse.io/runpod/jobs/5210929008 | RunPod | Senior Growth Marketing Manager | Growth not PMM
+- [x] SKIP | https://job-boards.greenhouse.io/runpod/jobs/5112001008 | RunPod | Senior PM | PM
+- [x] SKIP | https://job-boards.greenhouse.io/arizeai/jobs/5818115004 | Arize AI | AI PM | PM
+- [x] SKIP | https://jobs.ashbyhq.com/zapier/e2047de6-8f3c-4e22-92ad-256fd540b7e7 | Zapier | GTM at Zapier | Generic/unclear role
+- [x] SKIP | https://jobs.ashbyhq.com/langchain/27af5f96-b287-4bcc-8679-f96686dc7c8d | LangChain | PM LangSmith | PM
+- [x] SKIP | https://jobs.ashbyhq.com/langchain/32c6fe13-76e0-49a2-849d-991014416987 | LangChain | GTM Engineer | Engineering
+- [x] SKIP | https://jobs.ashbyhq.com/langchain/1a588677-0507-45a4-8a14-506e89d2444f | LangChain | Senior GTM Recruiter UK | Recruiter + UK
+- [x] SKIP | https://jobs.ashbyhq.com/langchain/825b6d91-bc5e-4165-8a7c-2022a2248f7e | LangChain | GTM Engineer (dup) | Engineering
+- [x] SKIP | https://jobs.ashbyhq.com/langchain/7395d0d7-da1d-4061-9a5e-65eaadbbbda1 | LangChain | GTM Onboarding & Enablement Lead | Enablement
+- [x] SKIP | https://jobs.ashbyhq.com/n8n/e0ab33cc-db1a-4c0b-8d30-78b253c8d69c | n8n | Senior Lifecycle Marketing Manager | Not core PMM
+- [x] SKIP | https://jobs.ashbyhq.com/pinecone/7261adcb-026d-4552-8f89-7a46156c40c5 | Pinecone | Staff/Principal PM Database | PM
+- [x] SKIP | https://jobs.ashbyhq.com/cohere/a8122632-cc3b-4a1a-bd78-4b4b9466cb38 | Cohere | PM Safety Research | PM
+- [x] SKIP | https://jobs.ashbyhq.com/cohere/d9d2740b-8869-462d-85df-21c1941bc13d | Cohere | PM Native Experience & Growth | PM
+- [x] SKIP | https://jobs.ashbyhq.com/cohere/fe2e2971-e2c0-43fd-9ab1-187571776a5d | Cohere | PM Platform Experience & Developer Product | PM
+- [x] SKIP | https://jobs.ashbyhq.com/cohere/2a7f1fad-05ff-4260-af36-556d1d694775 | Cohere | PM Public Sector & Defence | PM
+- [x] SKIP | https://jobs.ashbyhq.com/cohere/1d1b300d-254b-48c4-958f-99c6b907f295 | Cohere | PM Agent Harness & Modelling | PM
+- [x] SKIP | https://jobs.ashbyhq.com/DeepL/08d92b33-3ced-4d47-be31-3323e4c18b8b | DeepL | Staff PM | PM
+- [x] SKIP | https://jobs.ashbyhq.com/DeepL/734dfbcf-9cbb-4259-848a-35d304355e77 | DeepL | Group PM Business Acceleration | PM
+- [x] SKIP | https://helsing.ai/jobs/4790417101?gh_jid=4790417101 | Helsing | PM Dev Testing & Validation | PM
+- [x] SKIP | https://helsing.ai/jobs/4785352101?gh_jid=4785352101 | Helsing | PM Space | PM
+- [x] SKIP | https://helsing.ai/jobs/4869481101?gh_jid=4869481101 | Helsing | PM Electronic Warfare | PM
+- [x] SKIP | https://getyourguide.careers/jobs/7649294?gh_jid=7649294 | GetYourGuide | Lead PM B2C | PM
+- [x] SKIP | https://getyourguide.careers/jobs/7657103?gh_jid=7657103 | GetYourGuide | Lead PM Paid Search | PM
+- [x] SKIP | https://getyourguide.careers/jobs/7556882?gh_jid=7556882 | GetYourGuide | Senior PM Connectivity | PM
+- [x] SKIP | https://getyourguide.careers/jobs/7887400?gh_jid=7887400 | GetYourGuide | Senior PM B2B | PM
+- [x] SKIP | https://getyourguide.careers/jobs/7897088?gh_jid=7897088 | GetYourGuide | Senior GTM Developer | Engineering
+- [x] SKIP | https://getyourguide.careers/jobs/7865219?gh_jid=7865219 | GetYourGuide | Senior PM Discovery B2C | PM
+- [x] SKIP | https://getyourguide.careers/jobs/7661406?gh_jid=7661406 | GetYourGuide | Senior Marketing Manager App Growth | Mobile growth not PMM
+- [x] SKIP | https://n26.com/en-eu/careers/positions/7861428?gh_jid=7861428 | N26 | PM Data Governance | PM (EU fintech)
+- [x] SKIP | https://n26.com/en-eu/careers/positions/7868456?gh_jid=7868456 | N26 | PM Lending | PM
+- [x] SKIP | https://n26.com/en-eu/careers/positions/7882770?gh_jid=7882770 | N26 | PM Savings | PM
+- [x] SKIP | https://n26.com/en-eu/careers/positions/7704226?gh_jid=7704226 | N26 | Senior PM Onboarding & KYC | PM
+- [x] SKIP | https://n26.com/en-eu/careers/positions/7140089?gh_jid=7140089 | N26 | Senior PM Payments Platform | PM
+- [x] SKIP | https://n26.com/en-eu/careers/positions/7653388?gh_jid=7653388 | N26 | Senior PM Runtime Platform | PM
+- [x] SKIP | https://n26.com/en-eu/careers/positions/7868515?gh_jid=7868515 | N26 | PM Data Governance (dup) | PM
+- [x] SKIP | https://n26.com/en-eu/careers/positions/7861809?gh_jid=7861809 | N26 | PM Lending (dup) | PM
+- [x] SKIP | https://n26.com/en-eu/careers/positions/7883144?gh_jid=7883144 | N26 | PM Savings (dup) | PM
+- [x] SKIP | https://n26.com/en-eu/careers/positions/7668142?gh_jid=7668142 | N26 | Senior PM Onboarding (dup) | PM
+- [x] SKIP | https://n26.com/en-eu/careers/positions/7140058?gh_jid=7140058 | N26 | Senior PM Payments (dup) | PM
+- [x] SKIP | https://n26.com/en-eu/careers/positions/7649873?gh_jid=7649873 | N26 | Senior PM Runtime (dup) | PM
+- [x] SKIP | https://n26.com/en-eu/careers/positions/7845570?gh_jid=7845570 | N26 | Growth Marketing Manager | Growth not PMM
+- [x] SKIP | https://job-boards.greenhouse.io/celonis/jobs/7638119003?gh_jid=7638119003 | Celonis | Senior PM Celonis Labs | PM
+- [x] SKIP | https://job-boards.greenhouse.io/celonis/jobs/7687708003?gh_jid=7687708003 | Celonis | Senior PM Extractors | PM
+- [x] SKIP | https://careers.hellofresh.com/global/en/job/7874237?gh_jid=7874237 | HelloFresh | Marketing Manager Paid Search | Not PMM
+- [x] SKIP | https://careers.hellofresh.com/global/en/job/7896431?gh_jid=7896431 | HelloFresh | Product Strategy Manager | Not PMM
+- [x] SKIP | https://careers.hellofresh.com/global/en/job/7831405?gh_jid=7831405 | HelloFresh | Senior Growth Marketing Manager | Growth not PMM
+- [x] SKIP | https://careers.hellofresh.com/global/en/job/7849960?gh_jid=7849960 | HelloFresh | Senior Manager Product Strategy | Not PMM
+- [x] SKIP | https://careers.hellofresh.com/global/en/job/7825174?gh_jid=7825174 | HelloFresh | Senior Manager Product Strategy Factor | Not PMM
+- [x] SKIP | https://careers.hellofresh.com/global/en/job/7870471?gh_jid=7870471 | HelloFresh | Senior Marketing Manager | Not PMM
+- [x] SKIP | https://careers.hellofresh.com/global/en/job/7570562?gh_jid=7570562 | HelloFresh | Senior Marketing Manager Virality | Not PMM
+- [x] SKIP | https://careers.hellofresh.com/global/en/job/7783177?gh_jid=7783177 | HelloFresh | Senior PM | PM
+- [x] SKIP | https://careers.hellofresh.com/global/en/job/7824418?gh_jid=7824418 | HelloFresh | Senior PM Personalisation & Data | PM
+- [x] SKIP | https://careers.hellofresh.com/global/en/job/7594595?gh_jid=7594595 | HelloFresh | Staff PM Growth | PM
+- [x] SKIP | https://careers.hellofresh.com/global/en/job/7646125?gh_jid=7646125 | HelloFresh | Senior Manager Product Strategy & Innovation | Not PMM
+- [x] SKIP | https://sumup.com/careers/positions/8343371002?gh_jid=8343371002 | SumUp | PM Acquiring | PM
+- [x] SKIP | https://sumup.com/careers/positions/8498278002?gh_jid=8498278002 | SumUp | PM Partnerships | PM
+- [x] SKIP | https://sumup.com/careers/positions/8313095002?gh_jid=8313095002 | SumUp | Senior PM Acquiring | PM
+- [x] SKIP | https://sumup.com/careers/positions/8458928002?gh_jid=8458928002 | SumUp | Senior PM Bookings | PM
+- [x] SKIP | https://sumup.com/careers/positions/8366752002?gh_jid=8366752002 | SumUp | Senior PM Hardware | PM
+- [x] SKIP | https://sumup.com/careers/positions/8418443002?gh_jid=8418443002 | SumUp | Senior Technical PM Commercial Data | PM
+- [x] SKIP | https://sumup.com/careers/positions/8537104002?gh_jid=8537104002 | SumUp | Online Marketing Manager | Not PMM
+- [x] SKIP | https://sumup.com/careers/positions/8529498002?gh_jid=8529498002 | SumUp | Senior Technical PM | PM
+- [x] SKIP | https://sumup.com/careers/positions/8555715002?gh_jid=8555715002 | SumUp | Technical PM Platform | PM
+- [x] SKIP | https://job-boards.greenhouse.io/contentful/jobs/7727886 | Contentful | Senior PM | PM
+- [x] SKIP | https://job-boards.greenhouse.io/contentful/jobs/7636216 | Contentful | Senior PM (dup) | PM
+- [x] SKIP | https://job-boards.greenhouse.io/contentful/jobs/7727884 | Contentful | Senior PM (dup) | PM
+- [x] SKIP | https://job-boards.greenhouse.io/contentful/jobs/7635752 | Contentful | Senior PM (dup) | PM
+- [x] SKIP | https://job-boards.greenhouse.io/contentful/jobs/7658079 | Contentful | Senior PM (dup) | PM
+- [x] SKIP | https://traderepublic.com/en-de/about?jobId=5614731003&gh_jid=5614731003 | Trade Republic | Senior Technical PM | PM
+- [x] SKIP | https://traderepublic.com/en-de/about?jobId=6551435003&gh_jid=6551435003 | Trade Republic | Senior Technical PM Banking Infra | PM
+- [x] SKIP | https://wayve.firststage.co/jobs?gh_jid=8325451002 | Wayve | Technical PM Robotaxi | PM
+- [x] SKIP | https://wayve.firststage.co/jobs?gh_jid=8542420002 | Wayve | PM AI Driver | PM
+- [x] SKIP | https://jobs.ashbyhq.com/lovable/dbfc5125-d45a-4178-be25-cccd4309ae16 | Lovable | GTM Recruiter | Recruiter
+- [x] SKIP | https://jobs.ashbyhq.com/lovable/56715dbe-a7a3-427d-90c7-338697891f6e | Lovable | GTM Engineer | Engineering
+- [x] SKIP | https://jobs.ashbyhq.com/lovable/e8897c7e-53bd-43f8-94bb-02237f4459bb | Lovable | PM Build Experience | PM
+- [x] SKIP | https://jobs.ashbyhq.com/lovable/1140665c-a426-49d5-bcdd-f78560efe50d | Lovable | PM Agents | PM
+- [x] SKIP | https://jobs.ashbyhq.com/lovable/282cea94-a525-43a6-a18e-8b92900d03f8 | Lovable | PM Security | PM
+- [x] SKIP | https://jobs.ashbyhq.com/lovable/601f50aa-db7f-4727-8427-80b9038c52ca | Lovable | PM Enterprise | PM
+- [x] SKIP | https://jobs.ashbyhq.com/lovable/8dc88a65-5855-48e3-b58e-62ec9ca4ca9e | Lovable | GTM Recruiter (dup) | Recruiter
+- [x] SKIP | https://jobs.ashbyhq.com/legora/97c6bdbe-dc8f-40a5-be38-95b3206a1f21 | Legora | Events & Field Marketing Manager | Events not PMM
+- [x] SKIP | https://jobs.ashbyhq.com/legora/9f578b74-ec54-481f-9cd5-f6a9cead5f26 | Legora | Director GTM Systems & Architecture | Systems/Ops
+- [x] SKIP | https://jobs.ashbyhq.com/legora/753e12dd-8379-412a-b43b-3fd4ad9ebdad | Legora | GTM Strategy & Planning Senior Analyst | Analyst
+- [x] SKIP | https://jobs.ashbyhq.com/legora/a465beed-5aac-4fdf-9a79-fca07c11fe3c | Legora | GTM Systems Analyst | Analyst
+- [x] SKIP | https://jobs.ashbyhq.com/legora/acb1e41e-606d-44e1-a7d9-8486b416dabd | Legora | Data Analyst GTM & Customer Success | Analyst
+- [x] SKIP | https://jobs.ashbyhq.com/legora/e62d75ab-dbe6-4b86-b8fd-5c3c6a3f5a18 | Legora | GTM Lead | BD/Sales
+- [x] SKIP | https://jobs.ashbyhq.com/legora/54ffa82a-f093-4a62-a092-9752f5031524 | Legora | GTM Manager Strategic Accounts | Sales
+- [x] SKIP | https://jobs.ashbyhq.com/synthesia/d1c1ffdc-4c67-416f-a6ff-6baefc7a158f | Synthesia | GTM Methodology Lead | Ops/Enablement
+- [x] SKIP | https://jobs.ashbyhq.com/synthesia/fd3617a1-b117-417d-bee5-416ea9193150 | Synthesia | PM Video Creation & Editing | PM
+- [x] SKIP | https://jobs.ashbyhq.com/synthesia/7fc7f0ac-7a05-4dba-9036-ffdb99b6a704 | Synthesia | PM Analytics | PM
+- [x] SKIP | https://jobs.ashbyhq.com/synthesia/2732bc00-620f-49ab-a0dc-001631d977df | Synthesia | Group PM | PM
+- [x] SKIP | https://jobs.ashbyhq.com/perplexity/2be717cb-ad3e-4052-a464-79b107a70406 | Perplexity | Demand Generation Lead | Demand Gen not PMM
+- [x] SKIP | https://jobs.ashbyhq.com/perplexity/f25e190e-0508-4707-b575-fcaed358dc13 | Perplexity | PM Builder | PM
+- [x] SKIP | https://job-boards.greenhouse.io/hightouch/jobs/5823552004 | Hightouch | AI Operations GTM | Ops
+- [x] SKIP | https://job-boards.greenhouse.io/hightouch/jobs/5970143004 | Hightouch | Lead PM Agentic Ads Platform | PM
+- [x] SKIP | https://job-boards.greenhouse.io/hightouch/jobs/5834919004 | Hightouch | Lead PM Agentic Personalization | PM
+- [x] SKIP | https://jobs.ashbyhq.com/workos/70cedfd9-1ed8-4e4e-bc6a-9f0bbcc4756d | WorkOS | GTM Enterprise Sales | Sales AE
+- [x] SKIP | https://jobs.ashbyhq.com/workos/afdd651f-c97a-4ba2-88af-c790eb9e1a1d | WorkOS | GTM AI Native Sales | Sales AE
+- [x] SKIP | https://jobs.ashbyhq.com/workos/990c41b1-e3c3-4a75-83c2-ca916899c110 | WorkOS | GTM Engineer | Engineering
+- [x] SKIP | https://jobs.ashbyhq.com/workos/5550ddd5-c3eb-459a-aa4d-8b1216346d88 | WorkOS | PM | PM
+- [x] SKIP | https://jobs.ashbyhq.com/clerk/be4962fc-0c3e-47c3-b77e-71e48d62a376 | Clerk | PM Billing | PM
+- [x] SKIP | https://jobs.lever.co/pigment/fcf8094a-8356-43c1-b3ef-a58e35feb665 | Pigment | Growth Manager GTM Engineer | Engineering
+- [x] SKIP | https://jobs.lever.co/pigment/19125f5d-b3b2-43f1-bc9f-ca60ff3e0e2d | Pigment | RPO Talent Acquisition GTM | Recruiter
+- [x] SKIP | https://jobs.lever.co/pigment/476dce0e-ff12-4719-954b-e6f22a0ad3d5 | Pigment | Talent Acquisition GTM New York | Recruiter
+- [x] SKIP | https://jobs.lever.co/pigment/1b87e2f6-31f0-467e-9f90-ab97dfe503f5 | Pigment | Talent Acquisition GTM Paris | Recruiter
+- [x] SKIP | https://jobs.lever.co/pigment/b3483219-d576-40a5-8c05-f2dfe93a59f3 | Pigment | RPO Talent Acquisition (dup) | Recruiter
+- [x] SKIP | https://jobs.lever.co/pigment/5a1b4da5-a1c9-45ea-af96-f4ab188d8762 | Pigment | Program Manager GTM Enablement | Enablement
+- [x] SKIP | https://jobs.lever.co/spotify/aaa18791-cdb6-493a-87c8-ef233f848a99 | Spotify | Engineering Manager Messaging Platform | Engineering
+- [x] SKIP | https://jobs.lever.co/spotify/560d49ea-e205-4b54-8b7b-3f577d2c65ff | Spotify | Experiential Marketing Manager | Events not PMM
+- [x] SKIP | https://jobs.lever.co/spotify/3a7a3d26-bd02-496b-86d3-df5277e5b478 | Spotify | Group PM Experience | PM
+- [x] SKIP | https://jobs.lever.co/spotify/5aeac023-dd35-4cc4-995f-62ac1ec7d85e | Spotify | Marketing Manager Brand Experience | Events/brand not PMM
+- [x] SKIP | https://jobs.lever.co/spotify/b6e58287-4355-4f1d-9b56-3add5509b8e8 | Spotify | Principal PM ML Subscriptions | PM
+- [x] SKIP | https://jobs.lever.co/spotify/f38133ce-c2d7-4473-ab69-6bdcb1703297 | Spotify | Principal PM Experience | PM
+- [x] SKIP | https://jobs.lever.co/spotify/a4a933ce-ab44-4a13-b8ca-8575c97ea40a | Spotify | PM Artist Promotion | PM (consumer)
+- [x] SKIP | https://jobs.lever.co/spotify/ba28dba6-91d0-49ce-881d-dbe2c2ae85e5 | Spotify | PM Platform Tooling | PM
+- [x] SKIP | https://jobs.lever.co/spotify/d30af7c7-67aa-404a-a1a5-b8b3838e08c3 | Spotify | Senior PM Subscriptions | PM
+- [x] SKIP | https://jobs.lever.co/spotify/3e76b5e6-c86c-42eb-8be7-05d9246dd901 | Spotify | Senior PM Core Experience Playback | PM
+- [x] SKIP | https://jobs.lever.co/spotify/1f0ccb2c-bf5f-49ee-936d-4a22e8725c2b | Spotify | Senior Program Analyst GTM Ops | Analyst
+- [x] SKIP | https://jobs.lever.co/spotify/c25dea90-3b36-4d7f-8011-ef1efd5c6e9e | Spotify | Group PM Messaging | PM
+- [x] SKIP | https://jobs.lever.co/spotify/c322d068-5b59-4658-b618-bb2a032eeb9b | Spotify | Senior ML Engineer Messaging | Engineering
+- [x] SKIP | https://jobs.lever.co/spotify/008e0a44-088b-48f2-b100-cce07e40a45b | Spotify | Senior PM Advertising | PM
+- [x] SKIP | https://jobs.lever.co/spotify/2a3b6947-2a3b-4d4a-a58d-eb242c3a2cae | Spotify | Senior PM Sharing & Social | PM
+- [x] SKIP | https://jobs.lever.co/spotify/a69512de-6754-411c-a83f-1f944820e559 | Spotify | Senior PM Partner Growth | PM
+- [x] SKIP | https://jobs.lever.co/mistral/6201f9a0-233f-4de3-a8cc-65b75e99370f | Mistral AI | PM AI Studio | PM
+- [x] SKIP | https://jobs.lever.co/mistral/ca22a1ac-c87e-4463-914a-6753ca79318c | Mistral AI | PM Cloud Partnerships | PM
+- [x] SKIP | https://jobs.lever.co/mistral/c08c3a0f-9899-4e6c-8195-8b1cc24c56ff | Mistral AI | PM Context & Search | PM
+- [x] SKIP | https://jobs.lever.co/mistral/7809b483-bdae-4964-97c7-5b8d232a142f | Mistral AI | PM Document Intelligence | PM
+- [x] SKIP | https://jobs.lever.co/mistral/11087966-f183-44b1-adc9-3a400c1f52ad | Mistral AI | PM Forge | PM
+- [x] SKIP | https://jobs.lever.co/mistral/650e0e53-dc35-4e61-9b46-6f7ef003d0be | Mistral AI | PM Mistral Vibe | PM
+- [x] SKIP | https://jobs.lever.co/mistral/41262cfd-5a86-4645-b059-1de4ee9b9ccb | Mistral AI | Talent Acquisition EMEA | Recruiter
+- [x] SKIP | https://jobs.ashbyhq.com/supabase/2ab81e46-2e46-4120-938c-429b9f4aa7a7 | Supabase | Field & Events Marketing Manager | Events not core PMM
+- [x] SKIP | https://jobs.ashbyhq.com/supabase/f9b0d8ca-16e3-481d-b41e-5453bbc77cc9 | Supabase | GTM Engineer | Engineering
+- [x] SKIP | https://jobs.ashbyhq.com/supabase/a13f3149-ea55-4abf-8bcd-d53ed575bd37 | Supabase | GTM Compensation Lead | HR/Comp
+- [x] SKIP | https://jobs.ashbyhq.com/supabase/47282e37-34dc-401d-a1cd-dbe85fdd1c22 | Supabase | PM Pricing & Billing | PM
+- [x] SKIP | https://jobs.ashbyhq.com/supabase/b8010a28-109c-46a9-b8b7-c7f9b24077fa | Supabase | PM Security & Trust | PM
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/0bfc4016-f5b2-4957-a305-ec5dd96d4fa4 | Clay Labs | Sales Manager GTME | Sales
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/0df88e24-28da-4376-956d-926111832a32 | Clay Labs | Head of GTM Architecture | Ops/Architecture
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/0944c931-d792-45f9-9d5f-eab2dacad4d8 | Clay Labs | GTME Sales Enablement | Enablement
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/31d3597f-400e-4c12-9692-a5fb6f5e0d03 | Clay Labs | GTM Data Analyst | Analyst
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/749a6373-0979-424a-abc9-9cfc511a5e44 | Clay Labs | PM Enrichment & AI | PM
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/26c9a251-b616-49f7-a489-4d393a02ea5f | Clay Labs | Forward Deployed GTME | Sales/FD
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/84212160-462f-42a1-a9c2-b9b6428e945f | Clay Labs | Account Executive GTME New Business | Sales AE
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/f50ce265-afa3-4da7-9d1b-f0b02256282c | Clay Labs | GTME Ecosystems Cohorts | Sales/Ecosystem
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/6a716895-54fb-41f7-9cd5-13ff6a4085a4 | Clay Labs | Account Executive GTME High Velocity | Sales AE
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/7bd35c48-c394-46c8-98a1-f809fed007d8 | Clay Labs | Account Executive GTME SMB | Sales AE
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/05d88dd4-372c-40b5-85c1-8fb8a53fb133 | Clay Labs | GTME Ecosystem Programs Lead | Ecosystem/Sales
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/0532ee84-60a2-4998-a461-eabc555ee4c8 | Clay Labs | GTME University Lead | Enablement
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/9c58e923-3034-4d25-b820-2102769a77e1 | Clay Labs | GTME Talent Lead | Recruiter/Talent
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/b996c889-9985-4ff1-98c3-ebf6b60b8790 | Clay Labs | GTME Community Strategy & Ops | Community not PMM
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/1b1c004f-0e6a-41b6-bac3-971448b63a07 | Clay Labs | GTME AI Teacher | Enablement
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/45fbd224-6a30-4b8e-8938-139ae0a0127f | Clay Labs | GTME Create Your Own Role | Too vague
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/7ee967d9-82eb-4a9a-ab49-617f608872c9 | Clay Labs | Account Executive GTME New Business (dup) | Sales AE
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/741b403b-6581-4c55-ad98-03eb51d66795 | Clay Labs | Account Executive GTME High Velocity (dup) | Sales AE
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/a8a6642c-19a9-4d43-ba01-22608fb70e01 | Clay Labs | Account Executive GTME New Business (dup) | Sales AE
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/3115a0f7-0978-44ff-9ee7-b9bb82afacc2 | Clay Labs | GTME Startup Programs Lead | Sales/Ecosystem
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/0a88196b-f7ab-4340-84fa-ecf80b45705b | Clay Labs | GTM Ops Manager Quote to Cash | Ops
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/e43101dd-4e98-4c60-bc1b-adbbb38c7b15 | Clay Labs | GTM Engineer CX | Engineering
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/242be863-2f62-44a7-909d-6c351dee81d1 | Clay Labs | GTM Engineer Ecosystem | Engineering
+- [x] SKIP | https://jobs.ashbyhq.com/claylabs/d5c7f612-10e7-4080-8b8a-d51e70fff9c5 | Clay Labs | GTM Engineer Seller Efficiency | Engineering
+- [x] SKIP | https://jobs.ashbyhq.com/runway-ml/fc409275-6797-4504-9be9-3215276d3645 | Runway | Staff PM ML Research | PM
+- [x] SKIP | https://www.xendit.co/en/careers/job-application/?gh_jid=7545780003 | Xendit | PM User & Accounts | PM
+- [x] SKIP | https://job-boards.eu.greenhouse.io/tamara/jobs/4787871101 | Tamara | PM Trust & Safety | PM
+- [x] SKIP | https://job-boards.eu.greenhouse.io/tamara/jobs/4852757101 | Tamara | Senior PM Banking | PM
+- [x] SKIP | https://job-boards.eu.greenhouse.io/tamara/jobs/4857127101 | Tamara | Senior PM CARE Tech | PM
+- [x] SKIP | https://www.hubspot.com/careers/jobs/7609987?gh_jid=7609987 | HubSpot MENA | Technical Lead Frontend | Engineering
+- [x] SKIP | https://jobs.lever.co/qonto/feadc191-e77b-49db-af62-6440e7a42d12 | Qonto | Senior PM Connect | PM
+- [x] SKIP | https://jobs.ashbyhq.com/deliveroo/30ade7cd-6c11-4fd4-a232-9533d0ce4970 | Deliveroo MENA | Senior PM New Verticals | PM
+- [x] SKIP | https://jobs.ashbyhq.com/deliveroo/5de06074-1b51-45b6-9a01-49da1a97bdaa | Deliveroo MENA | Senior PM | PM
+- [x] SKIP | https://jobs.ashbyhq.com/deliveroo/528b7b55-628f-4748-9726-fe3797be01a8 | Deliveroo MENA | Staff PM Ads | PM
+- [x] SKIP | https://jobs.ashbyhq.com/photoroom/5ded7e4c-de4d-4723-824e-41ce861666c6 | Photoroom | Senior PM Self-serve | PM
+- [x] SKIP | https://jobs.ashbyhq.com/perk/1e065abd-730d-4d73-b7ac-8e4a513ce91c | Travelperk | Staff PM Billing VAT | PM
+- [x] SKIP | https://jobs.ashbyhq.com/perk/cc9fb69f-bb52-4e21-a7ab-7358175f6414 | Travelperk | Staff PM Travel & Spend | PM
+- [x] SKIP | https://jobs.ashbyhq.com/perk/9142ea5b-d1bd-4190-96f5-e67cbf460b34 | Travelperk | GTM Engineer US | Engineering + US
+- [x] SKIP | https://jobs.ashbyhq.com/perk/a40ab459-d694-4306-8cef-029368fde395 | Travelperk | Senior PM Flights | PM
+- [x] SKIP | https://jobs.ashbyhq.com/perk/420a089a-800c-4eef-bb59-4f1b968d1aa0 | Travelperk | Group PM Finance Automation | PM
+- [x] SKIP | https://jobs.ashbyhq.com/causaly/3937cb5a-b757-468e-8d5e-d6344c21b626 | Causaly | GTM Engineer/RevOps Manager | Engineering/Ops
+- [x] SKIP | https://jobs.ashbyhq.com/forto/5014754b-6695-4f8f-83cd-a547d560279e | Forto | Team Lead Trade Analytics | Analyst
+- [x] SKIP | https://job-boards.greenhouse.io/postman/jobs/7725510003 | Postman | GTM Recruiter | Recruiter
+- [x] SKIP | https://job-boards.greenhouse.io/postman/jobs/7639862003 | Postman | Head of Marketing Analytics | Analytics
+- [x] SKIP | https://job-boards.greenhouse.io/postman/jobs/7671645003 | Postman | Head of Marketing Ops & Production | Ops
+- [x] SKIP | https://job-boards.greenhouse.io/postman/jobs/7637729003 | Postman | Sales Enablement Program Manager | Enablement
+- [x] SKIP | https://job-boards.greenhouse.io/postman/jobs/7696833003 | Postman | Senior Digital Marketing Manager | Not PMM
+- [x] SKIP | https://www.druva.com/why-druva/explore/careers/jobs/8351005002/?gh_jid=8351005002 | Druva | Regional Field & Channel Marketing Manager | Not PMM
+- [x] SKIP | https://www.druva.com/why-druva/explore/careers/jobs/8487882002/?gh_jid=8487882002 | Druva | Sales Enablement Manager Partners | Enablement
+- [x] SKIP | https://www.druva.com/why-druva/explore/careers/jobs/8487907002/?gh_jid=8487907002 | Druva | Technical Sales Enablement Manager Partners | Enablement
+- [x] SKIP | https://coreweave.com/careers/job?4662955006&board=coreweave&gh_jid=4662955006 | CoreWeave | Enterprise GTM Leader | Sales/GTM leadership
+- [x] SKIP | https://coreweave.com/careers/job?4679718006&board=coreweave&gh_jid=4679718006 | CoreWeave | PM Finance | PM
+- [x] SKIP | https://coreweave.com/careers/job?4658647006&board=coreweave&gh_jid=4658647006 | CoreWeave | Product Strategy Principal | Strategy not PMM
+- [x] SKIP | https://coreweave.com/careers/job?4671896006&board=coreweave&gh_jid=4671896006 | CoreWeave | Senior Business Systems Engineer GTM Salesforce | Engineering
+- [x] SKIP | https://coreweave.com/careers/job?4673538006&board=coreweave&gh_jid=4673538006 | CoreWeave | Senior PM Data Center | PM
+- [x] SKIP | https://coreweave.com/careers/job?4673536006&board=coreweave&gh_jid=4673536006 | CoreWeave | Senior PM GTM | PM
+- [x] SKIP | https://coreweave.com/careers/job?4652655006&board=coreweave&gh_jid=4652655006 | CoreWeave | Senior PM Security & Infra | PM
+- [x] SKIP | https://coreweave.com/careers/job?4671513006&board=coreweave&gh_jid=4671513006 | CoreWeave | Staff PM Data Services | PM
+- [x] SKIP | https://coreweave.com/careers/job?4651535006&board=coreweave&gh_jid=4651535006 | CoreWeave | Staff PM Insights | PM
+- [x] SKIP | https://coreweave.com/careers/job?4642612006&board=coreweave&gh_jid=4642612006 | CoreWeave | Staff PM Networking | PM
+- [x] SKIP | https://jobs.lever.co/GoToGroup/98d0aaaa-0419-4808-823d-fda8cbff3096 | GoTo Group | Senior PM Data Foundation | PM
+- [x] SKIP | https://jobs.ashbyhq.com/vapi/202bbcae-46eb-4dfc-abe2-d416685291b6 | Vapi | GTM Recruiter (dup) | Recruiter
+- [x] SKIP | https://job-boards.greenhouse.io/airtable/jobs/8536588002 | Airtable | GTM Engineer | Engineering
+- [x] SKIP | https://job-boards.greenhouse.io/airtable/jobs/8475571002 | Airtable | PM Funnel & Activation | PM
+
+---
+
+## Procesadas
+
+- [x] #033 | https://job-boards.greenhouse.io/anthropic/jobs/5198991008 | Anthropic | Product Marketing Lead, Claude Platform - Cloud | 3.8/5 | PDF ✅
+- [x] #034 | https://jobs.ashbyhq.com/elevenlabs/f2ae7fe0-67da-48ae-b126-b942899ec7e9 | ElevenLabs | Product Marketing - Agents | 3.5/5 | PDF ✅
+- [x] #035 | https://jobs.ashbyhq.com/elevenlabs/78f45556-04cc-4f08-abb2-18e639ed9343 | ElevenLabs | B2B Growth Marketing - Agents | 2.8/5 | PDF ❌
+- [x] #036 | https://jobs.ashbyhq.com/elevenlabs/b6fb095b-cb0e-4926-9ad6-3004744ca7a4 | ElevenLabs | Developer Marketing Lead | 2.5/5 | PDF ❌
+- [x] #037 | https://job-boards.eu.greenhouse.io/parloa/jobs/4808845101 | Parloa | EMEA Senior Product Marketing Manager | 2.5/5 | PDF ❌
+- [x] #038 | https://job-boards.eu.greenhouse.io/parloa/jobs/4828560101 | Parloa | Principal Product Marketing Manager | 2.5/5 | PDF ❌
+- [x] #039 | https://job-boards.greenhouse.io/intercom/jobs/7232569 | Intercom | Principal Product Marketing Manager | 2.5/5 | PDF ❌
+- [x] #040 | https://job-boards.greenhouse.io/intercom/jobs/7834585 | Intercom | Senior Product Marketing Manager | 2.5/5 | PDF ❌
+- [x] #041 | https://jobs.ashbyhq.com/deepgram/b9b27091-1a95-4c31-a304-55c31711887a | Deepgram | Senior Product Marketing Manager, Text-to-Speech (TTS) | 3.8/5 | PDF ✅
+- [x] #042 | https://jobs.ashbyhq.com/deepgram/5805bd61-f9f1-43b6-9bb7-55986f251924 | Deepgram | Product Marketing Manager, Customer Marketing | 3.2/5 | PDF ✅
+- [x] #043 | https://job-boards.greenhouse.io/vercel/jobs/5199830004 | Vercel | Head of Product Marketing | 3.5/5 | PDF ✅
+- [x] #044 | https://job-boards.greenhouse.io/vercel/jobs/5969347004 | Vercel | Product Marketing, Security | 2.5/5 | PDF ❌
+- [x] #045 | https://job-boards.greenhouse.io/vercel/jobs/5722132004 | Vercel | Product Marketing, v0 | 2.5/5 | PDF ❌
+- [x] #046 | https://jobs.ashbyhq.com/langchain/fc61254d-2dd2-4b92-b01a-162e805b921c | LangChain | Product Marketing - Observability | 4.0/5 | PDF ✅
+- [x] #047 | https://jobs.ashbyhq.com/langchain/c0706500-4575-4150-88a7-e189ecb96d60 | LangChain | Product Marketing - Agent Infrastructure | 4.2/5 | PDF ✅
+- [x] #048 | https://job-boards.greenhouse.io/arizeai/jobs/5986448004 | Arize AI | Technical Product Marketing Manager | 4.3/5 | PDF ✅
+- [x] #049 | https://jobs.ashbyhq.com/zapier/1b2cca86-4645-4891-b90b-74b00aeb483f | Zapier | Director, Product Marketing | 4.4/5 | PDF ✅
+- [x] #050 | https://jobs.ashbyhq.com/causaly/fbbff5d2-a72e-401a-96d5-ba359b3d0e76 | Causaly | Director of Product Marketing | 3.8/5 | PDF ✅
+- [x] #051 | https://jobs.ashbyhq.com/legora/ea782caa-0a06-4670-b4b8-d7f30e7f7df8 | Legora | Senior Product Marketing Manager | 3.8/5 | PDF ✅
+- [x] #052 | https://jobs.ashbyhq.com/legora/9c8f051e-ec8d-4e8c-a780-6bff815f05f7 | Legora | Director, Product Marketing | 4.1/5 | PDF ✅
+- [x] #053 | https://jobs.ashbyhq.com/synthesia/c9784e0b-1ca1-4b17-815e-c232837ce2fd | Synthesia | Product Marketing Manager, Release Marketing | 3.5/5 | PDF ✅
+- [x] #054 | https://jobs.ashbyhq.com/perplexity/5ec96ca1-319a-4b85-99ce-e06629099cf9 | Perplexity | Product Marketing Manager | 4.2/5 | PDF ✅
+- [x] #055 | https://jobs.ashbyhq.com/perplexity/9e3a4516-b893-4579-9a6a-3720658e4b6d | Perplexity | Solutions Product Marketing Manager | 4.5/5 | PDF ✅
+- [x] #056 | https://jobs.lever.co/mistral/c5e134c7-0513-40cb-99f7-e1e87f9a3349 | Mistral AI | Product Marketing Manager, Solutions | 2.5/5 | PDF ✅
+- [x] #057 | https://jobs.lever.co/mistral/8f3566b9-8165-46e1-899f-f37f8fe35ab5 | Mistral AI | Senior Product Marketing Manager - Studio | 2.5/5 | PDF ❌
+- [x] #058 | https://www.sarvam.ai/careers/jobs/c9545b8f-2b19-44a9-a1e5-ed7d0a6d829a | Sarvam AI | PMM, Enterprise | 4.4/5 | PDF ✅
+- [x] SKIP | https://careers.kula.ai/sarvam-ai/31776/ | Sarvam AI | GTM & Strategy, Model API | Too junior (0–3 yrs)
+- [x] SKIP | https://careers.kula.ai/sarvam-ai/28772/ | Sarvam AI | GTM/Product, Vision | Too junior (1–3 yrs)
+- [x] #059 | https://www.druva.com/why-druva/explore/careers/jobs/8351005002/?gh_jid=8351005002 | Druva | Regional Field & Channel Marketing Manager | 3.0/5 | PDF ❌
+- [x] #060 | https://jobs.lever.co/mindtickle/b96342a2-a4a5-4281-8ccf-324b28a2e962 | Mindtickle | Group Product Manager | 2.8/5 | PDF ❌
+- [x] SKIP | https://jobs.lever.co/mindtickle/1538441d-fb7c-45b6-855d-d9328b3e7a46 | Mindtickle | Principal PMM – Field | Remote US — location blocker
+- [x] SKIP | https://jobs.lever.co/mindtickle/e55245fd-983c-4564-9b3f-491b7d16b8e8 | Mindtickle | Senior Product Manager | PM not PMM
+- [x] SKIP | https://jobs.lever.co/mindtickle/67dd2c08-025c-4071-a00e-89bd6826dc5e | Mindtickle | Sr Analyst GTM Strategy | Too junior
+- [x] #061 | https://job-boards.greenhouse.io/temporaltechnologies/jobs/5044184007 | Temporal Technologies | Senior Staff Product Marketing Manager, AI | 2.5/5 | PDF ❌
+- [x] SKIP | https://job-boards.greenhouse.io/temporaltechnologies/jobs/4619634007 | Temporal Technologies | Senior Product Marketing Manager, Platform Operations | Inactive URL
+- [x] #062 | https://job-boards.greenhouse.io/fairmarkit/jobs/5988066004 | Fairmarkit | Senior Product Marketing Manager | 2.5/5 | PDF ❌
